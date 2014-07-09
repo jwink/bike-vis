@@ -17,7 +17,12 @@ class UsersController < ApplicationController
     #data = data['provider']
     # need to search for user first!!!!
     # need to make temp_password random??
-    @user = User.find_by username: data['info']['email']
+    if data['provider'] == 'facebook'
+      @user = User.find_by username: data['info']['email']
+    else
+      @user = User.find_by username: data['info']['nickname']
+    end
+
     if @user == nil
       user_info = {}
       user_info[:provider] = data['provider']
