@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140709191431) do
+ActiveRecord::Schema.define(version: 20140710190138) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "averages", force: true do |t|
+    t.integer "station_id"
+    t.integer "hour"
+    t.integer "day_of_week"
+    t.decimal "avail_bikes_avg"
+    t.decimal "avail_docks_avg"
+  end
 
   create_table "favorites", force: true do |t|
     t.integer  "user_id"
@@ -43,6 +51,16 @@ ActiveRecord::Schema.define(version: 20140709191431) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "tempavg", force: true do |t|
+    t.integer "station_id"
+    t.integer "hour"
+    t.integer "day_of_week"
+    t.float   "avail_bikes_avg"
+    t.float   "avail_docks_avg"
+  end
+
+  add_index "tempavg", ["station_id", "hour", "day_of_week"], name: "averages_station_id_hour_day_of_week_key", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username"

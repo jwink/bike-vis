@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'users#oauth'
 
   get '/currents/nowinfo', to: 'currents#nowinfo'
+
+  get '/averages/cmonman', to: 'averages#index'
 end
