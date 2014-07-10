@@ -2,3 +2,22 @@
 <%= render 'accounts' %>
 
 <select id="station-select"></select>
+<div id='B'>
+  <a href='javascript:' id='toggle'>Toggle</a>
+  <div id="map">
+</div>
+
+
+<script>
+
+
+//mapo
+  var map = L.map('map').setView([51.505, -0.09], 13);
+  L.tileLayer('http://{s}.tiles.mapbox.com/v3/ph1am.io3m04c0/{z}/{x}/{y}.png', {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    maxZoom: 18
+}).addTo(map);
+
+var marker = L.marker([51.5, -0.09]).addTo(map);
+
+</script>
