@@ -18,6 +18,10 @@ $(document).ready(function(){
 
   currentData();
 
+  favorites = new BikeVisApp.Collections.Favorites();
+
+  favorites.fetch()
+
 
   $('#station-select').on('change', function(){
     selectedStation = $('#station-select').val();
