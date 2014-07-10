@@ -7,12 +7,6 @@ function currentData() {
     dataType: 'json',
     success: function(data) {
       var currentData = $.parseJSON(data);
-      //var whichStation = 72;
-      //$.each(jobj, function(index, station) {
-      //  if (station.id == whichStation) {
-      //    console.log(station.id, station.availableBikes);
-      //  }
-      //});
       stationDisplay(currentData);
     }
   });
@@ -20,6 +14,7 @@ function currentData() {
 
 
 function stationDisplay(data) {
+  globalCurrentData = data;
   var $select = $('#station-select');
   $.each(data, function(index, station) {
     $select.append('<option value=' + station.id + '>' + station.label + '</option>');

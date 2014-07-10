@@ -9,12 +9,26 @@ window.BikeVisApp = {
 };
 
 $(document).ready(function(){
+
+  map1 = L.mapbox.map('map1', 'jeffwinkler.ili3io27')
+    .setView([40.745, -73.979], 12);
+
+
   BikeVisApp.initialize();
 
   currentData();
 
+
   $('#station-select').on('change', function(){
-    console.log($('#station-select').val());
+    selectedStation = $('#station-select').val();
+    $.each(globalCurrentData, function(index, station) {
+      if (station.id == selectedStation) {
+        currInfoObject = station;
+      }
+    });
+    currStation = new StationModel(currInfoObject);
+    currStation.getHistory();
+    //tripPointData(selectedStation);
   });
 
 });

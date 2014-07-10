@@ -13,5 +13,5 @@ Rails.application.routes.draw do
 
   get '/currents/nowinfo', to: 'currents#nowinfo'
 
-  get '/averages/cmonman', to: 'averages#index'
+  get '/averages/averageinfo', to: 'averages#averageinfo'
 end

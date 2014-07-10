@@ -1,10 +1,10 @@
 
 class AveragesController < ApplicationController
 
-  def index
-    results = Average.where(station_id: 72, day_of_week: 4)
-    results_as_json = results.as_json
-    @display = results_as_json
+  def averageinfo
+    which_station = params[:station]
+    results = Average.where(station_id: which_station, day_of_week: 4)
+    render json: results.to_json
   end
 
 end
