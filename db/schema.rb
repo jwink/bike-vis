@@ -52,16 +52,6 @@ ActiveRecord::Schema.define(version: 20140710190138) do
     t.datetime "updated_at"
   end
 
-  create_table "tempavg", force: true do |t|
-    t.integer "station_id"
-    t.integer "hour"
-    t.integer "day_of_week"
-    t.float   "avail_bikes_avg"
-    t.float   "avail_docks_avg"
-  end
-
-  add_index "tempavg", ["station_id", "hour", "day_of_week"], name: "averages_station_id_hour_day_of_week_key", unique: true, using: :btree
-
   create_table "users", force: true do |t|
     t.string   "username"
     t.string   "uid"
