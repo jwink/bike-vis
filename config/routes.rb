@@ -11,5 +11,5 @@ Rails.application.routes.draw do
 
   get '/auth/:provider/callback', to: 'users#oauth'
 
-
+  get '/currents/nowinfo', to: 'currents#nowinfo'
 end
