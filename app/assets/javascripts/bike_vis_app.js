@@ -13,6 +13,8 @@ $(document).ready(function(){
 
   currentData();
 
-
+  $('#station-select').on('change', function(){
+    console.log($('#station-select').val());
+  });
 
 });
