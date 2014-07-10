@@ -1,2 +1,28 @@
 
 what
+
+<div id="login-div" title="Login">
+    <%= form_tag sessions_path do %>
+        <%= label_tag "Username" %>
+        <%= text_field_tag :username %>
+        <%= label_tag "Password" %>
+        <%= password_field_tag :password %>
+        <%= button_tag('Login', {type: 'submit', id: 'login-button'}) %>
+    <% end %>
+</div>
+
+<div id="signup-div" title="Sign up">
+    <%= form_for @user do |f| %>
+        <%= label_tag "Username" %>
+        <%= f.text_field :username %>
+        <%= label_tag "Password" %>
+        <%= f.password_field :password %>
+        <%= f.button('Signup', {type: 'submit', id: 'signup-button'}) %>
+    <% end %>
+</div>
+
+<% if current_user %>
+  <%= current_user.id %>
+  <%= link_to("Destroy", logout_path, method: :delete) %>
+<% end %>
+
