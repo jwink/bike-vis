@@ -7,8 +7,8 @@ function StationModel(data, direction) {
   this.currHour = getCurrHour();
   this.bikeForecast = [];
   this.dockForecast = [];
+  this.bestAlternative = undefined;
 }
-
 
 function getCurrHour() {
   currTime = new Date();
@@ -20,8 +20,6 @@ function getCurrHour() {
     return currHour;
   }
 };
-
-
 
 StationModel.prototype.getHistory = function() {
   var that = this;
@@ -55,20 +53,18 @@ StationModel.prototype.getStaticInfo = function() {
 
 StationModel.prototype.getForecast = function(bikeOrDock) {
   if (bikeOrDock == "bike") {
-    current = this.current.availableBikes;
-    averageLookup = "avail_bikes_avg";
+    var current = this.current.availableBikes;
+    var averageLookup = "avail_bikes_avg";
   } else {
-    current = this.current.availableDocks;
-    averageLookup = "avail_docks_avg";
+    var current = this.current.availableDocks;
+    var averageLookup = "avail_docks_avg";
   }
-  forecast = [];
-  averageForCurrHour = this.history[this.currHour][averageLookup];
+  var forecast = [];
+  var averageForCurrHour = this.history[this.currHour][averageLookup];
   for (i=0; i<4; i++) {
-    averageForNextHour = this.history[this.currHour+1+i][averageLookup];
-    chgRelativeToNow = averageForNextHour - averageForCurrHour;
-    forecastForNextHour = current + chgRelativeToNow;
-    console.log(this.staticInfo.capacity);
-    console.log(forecastForNextHour);
+    var averageForNextHour = this.history[this.currHour+1+i][averageLookup];
+    var chgRelativeToNow = averageForNextHour - averageForCurrHour;
+    var forecastForNextHour = current + chgRelativeToNow;
     if (forecastForNextHour < 0) {
       forecast.push(0);
     } else if (forecastForNextHour > this.staticInfo.capacity) {
@@ -84,14 +80,17 @@ StationModel.prototype.getForecast = function(bikeOrDock) {
   }
 }
 
-
 function findBestAlternative(tripStation, nearbyStations) {
   if (tripStation.direction == "from") {
-    whichForecast = 'bikeForecast';
+    var whichForecast = 'bikeForecast';
   } else {
-    whichForecast = 'dockForecast'
+    var whichForecast = 'dockForecast'
   }
+  currBest = nearbyStations.models[0];
+  console.log(currBest[whichForecast][0]);
+  $.each(nearbyStations, function(index, station) {
 
+  });
 }
 
 
