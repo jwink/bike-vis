@@ -2,6 +2,7 @@
 class UsersController < ApplicationController
   def index
     @user = User.new
+    @time = Time.now.localtime.wday
   end
 
   def create
@@ -14,9 +15,6 @@ class UsersController < ApplicationController
 
   def oauth
     data = request.env['omniauth.auth']
-    #data = data['provider']
-    # need to search for user first!!!!
-    # need to make temp_password random??
     if data['provider'] == 'facebook'
       @user = User.find_by username: data['info']['email']
     else
@@ -39,7 +37,6 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
     end
     redirect_to '/'
-    #render :json => data.to_json
   end
 
   private
