@@ -16,4 +16,8 @@ Rails.application.routes.draw do
   get '/averages/averageinfo', to: 'averages#averageinfo'
 
   resources :favorites, except: [:new, :edit, :show]
+
+  get '/averages/temp', to: 'averages#temp'
+
+
 end
