@@ -1,3 +1,15 @@
 body {
- 
+ background-color: lightyellow;
+}
+
+.leaflet-popup-pane .leaflet-popup-tip {
+width: 30px;
+height: 17px;
+padding: 1px;
+margin: -10px auto 0;
+-webkit-transform: rotate(45deg);
+-moz-transform: rotate(45deg);
+-ms-transform: rotate(45deg);
+-o-transform: rotate(45deg);
+transform: rotate(45deg);
 }
