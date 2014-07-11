@@ -19,5 +19,6 @@ Rails.application.routes.draw do
 
   get '/averages/temp', to: 'averages#temp'
 
+  get '/stations/static', to: 'stations#static'
 
 end
