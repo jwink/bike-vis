@@ -16,6 +16,7 @@ $(document).ready(function(){
   BikeVisApp.initialize();
   currentData();
   favorites = new BikeVisApp.Collections.Favorites();
+  listView = new BikeVisApp.Views.FavoritesListView({collection: favorites, el: $('#favorites')});
   favorites.fetch();
 
   $('#station-select').on('change', function() {
