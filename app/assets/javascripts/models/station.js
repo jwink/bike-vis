@@ -23,17 +23,23 @@ function getCurrHour() {
 
 StationModel.prototype.getHistory = function() {
   var that = this;
-  $.ajax({
-    url: '/averages/averageinfo',
-    dataType: 'json',
-    data: {station: this.current.id},
-    success: function(data) {
-      data.sort(function(a, b){return a['hour']-b['hour']});
-      console.log(data);
-      that.history = data;
-      that.getStaticInfo();
-    }
-  });
+  //debugger;
+  return function(){
+    //debugger;
+    var thys = that;
+    $.ajax({
+      url: '/averages/averageinfo',
+      dataType: 'json',
+      data: {station: thys.current.id},
+      success: function(data) {
+        //debugger;
+        data.sort(function(a, b){return a['hour']-b['hour']});
+        console.log(data);
+        thys.history = data;
+        thys.getStaticInfo();
+      }
+    });
+  }
 }
 
 StationModel.prototype.getStaticInfo = function() {
@@ -88,9 +94,14 @@ function findBestAlternative(tripStation, nearbyStations) {
   }
   currBest = nearbyStations.models[0];
   console.log(currBest[whichForecast][0]);
-  $.each(nearbyStations, function(index, station) {
-
+  console.log("hello");
+  $.each(nearbyStations.models, function(index, station) {
+    if (station[whichForecast][0] > currBest[whichForecast][0]) {
+      currBest = station;
+    }
   });
+  tripStation.bestAlternative = currBest;
+  clearInterval(waiting);
 }
 
 
