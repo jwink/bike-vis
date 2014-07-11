@@ -4,12 +4,8 @@ window.BikeVisApp = {
   Views: {},
   Routers: {},
   initialize: function() {
-    //alert('Hello from Backbone!');
   }
 };
-
-
-
 
 $(document).ready(function(){
 
@@ -17,62 +13,24 @@ $(document).ready(function(){
     .setView([40.745, -73.979], 12);
 
   globalCurrentData = undefined;
-
   BikeVisApp.initialize();
-
   currentData();
-
   favorites = new BikeVisApp.Collections.Favorites();
-
   favorites.fetch();
 
   $('#station-select').on('change', function() {
     wait = true;
     selectedStation = $('#station-select').val();
     populateStationInfo(selectedStation, "to");
-    //fromStation = currStation;
-    //fromStationNear = currStationNearby;
     waiting = setInterval(function(){
       if (currStationNearby.models[4].history.length==24 && wait==true) {
         wait = false;
-        console.log(currStationNearby);
         findBestAlternative(currStation, currStationNearby);
       } else {
         console.log("waiting");
       }
     }, 1000);
   });
-
-
-
-  // $('#station-select').on('change', function(){
-  //   selectedStation = $('#station-select').val();
-  //   $.each(globalCurrentData, function(index, station) {
-  //     if (station.id == selectedStation) {
-  //       currInfoObject = station;
-  //     }
-  //   });
-  //   currStation = new StationModel(currInfoObject, "from");
-  //   currStation.getHistory();
-  //   currStation.getStaticInfo();
-
-  //   currStationNearby = new StationCollection();
-  //   $.each(currStation.current.nearbyStations, function(index, nearby) {
-  //     stationID = nearby.id;
-  //     $.each(globalCurrentData, function(index, station) {
-  //       if (station.id == stationID) {
-  //         currInfoObject = station;
-  //       }
-  //     });
-  //     nearStation = new StationModel(currInfoObject);
-  //     nearStation.getHistory();
-  //     nearStation.getStaticInfo();
-  //     currStationNearby.models.push(nearStation);
-  //   });
-
-
-  // });
-
 });
 
 function populateStationInfo(whichStation, direction) {
@@ -84,7 +42,6 @@ function populateStationInfo(whichStation, direction) {
   });
   currStation = new StationModel(currInfoObject, direction);
   currStation.getHistory.call(currStation)();
-  //currStation.getHistory();
 
   currStationNearby = new StationCollection();
   var stationsArr = []
@@ -100,19 +57,4 @@ function populateStationInfo(whichStation, direction) {
 
     currStationNearby.models.push(nearStation);
   });
-  // ajaxCalls = [];
-  // $.each(currStationNearby.models, function(index, station) {
-  //   ajaxCalls.push(station.getHistory.call(station)());
-  // });
-
-
-
-  // $.when.apply($, ajaxCalls).done(function(data){
-  //   console.log("hello");
-  //   //findBestAlternative(currStation, data);
-  // });
-
-
-  //findBestAlternative(currStation, currStationNearby);
-
 }
