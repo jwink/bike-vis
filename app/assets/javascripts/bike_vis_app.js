@@ -8,27 +8,83 @@ window.BikeVisApp = {
   }
 };
 
+
+
+
 $(document).ready(function(){
 
   map1 = L.mapbox.map('map1', 'jeffwinkler.ili3io27')
     .setView([40.745, -73.979], 12);
 
+  globalCurrentData = undefined;
 
   BikeVisApp.initialize();
 
   currentData();
 
+  favorites = new BikeVisApp.Collections.Favorites();
 
-  $('#station-select').on('change', function(){
+  favorites.fetch()
+
+  $('#station-select').on('change', function() {
     selectedStation = $('#station-select').val();
+    populateStationInfo(selectedStation, "from");
+  });
+
+
+
+  // $('#station-select').on('change', function(){
+  //   selectedStation = $('#station-select').val();
+  //   $.each(globalCurrentData, function(index, station) {
+  //     if (station.id == selectedStation) {
+  //       currInfoObject = station;
+  //     }
+  //   });
+  //   currStation = new StationModel(currInfoObject, "from");
+  //   currStation.getHistory();
+  //   currStation.getStaticInfo();
+
+  //   currStationNearby = new StationCollection();
+  //   $.each(currStation.current.nearbyStations, function(index, nearby) {
+  //     stationID = nearby.id;
+  //     $.each(globalCurrentData, function(index, station) {
+  //       if (station.id == stationID) {
+  //         currInfoObject = station;
+  //       }
+  //     });
+  //     nearStation = new StationModel(currInfoObject);
+  //     nearStation.getHistory();
+  //     nearStation.getStaticInfo();
+  //     currStationNearby.models.push(nearStation);
+  //   });
+
+
+  // });
+
+});
+
+function populateStationInfo(whichStation, direction) {
+
+  $.each(globalCurrentData, function(index, station) {
+   if (station.id == whichStation) {
+      currInfoObject = station;
+    }
+  });
+  currStation = new StationModel(currInfoObject, direction);
+  currStation.getHistory();
+  currStation.getStaticInfo();
+
+  currStationNearby = new StationCollection();
+  $.each(currStation.current.nearbyStations, function(index, nearby) {
+    stationID = nearby.id;
     $.each(globalCurrentData, function(index, station) {
-      if (station.id == selectedStation) {
+      if (station.id == stationID) {
         currInfoObject = station;
       }
     });
-    currStation = new StationModel(currInfoObject);
-    currStation.getHistory();
-    //tripPointData(selectedStation);
+    nearStation = new StationModel(currInfoObject, direction);
+    nearStation.getHistory();
+    nearStation.getStaticInfo();
+    currStationNearby.models.push(nearStation);
   });
-
-});
+}

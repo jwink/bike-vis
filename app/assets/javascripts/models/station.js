@@ -1,8 +1,11 @@
 
-function StationModel(data) {
+function StationModel(data, direction) {
   this.current = data;
+  this.direction = direction;
   this.history = {};
+  this.staticInfo = {};
 }
+
 
 StationModel.prototype.getHistory = function() {
   var that = this;
@@ -18,4 +21,16 @@ StationModel.prototype.getHistory = function() {
   });
 }
 
+StationModel.prototype.getStaticInfo = function() {
+  var that = this
+  $.ajax({
+    url: '/stations/static',
+    dataType: 'json',
+    data: {station: this.current.id},
+    success: function(data) {
+      console.log(data);
+      that.staticInfo = data;
+    }
+  });
+}
 
