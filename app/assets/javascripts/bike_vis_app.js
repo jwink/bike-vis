@@ -10,7 +10,7 @@ window.BikeVisApp = {
 $(document).ready(function(){
 
   map1 = L.mapbox.map('map1', 'jeffwinkler.ili3io27')
-    .setView([40.745, -73.979], 12);
+    .setView([40.745, -73.979], 14);
 
   globalCurrentData = undefined;
   BikeVisApp.initialize();

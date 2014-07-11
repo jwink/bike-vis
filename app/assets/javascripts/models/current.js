@@ -15,6 +15,7 @@ function currentData() {
 
 function stationDisplay(data) {
   globalCurrentData = data;
+  populateMap(data);
   var $select = $('#station-select');
   $.each(data, function(index, station) {
     $select.append('<option value=' + station.id + '>' + station.label + '</option>');
