@@ -17,6 +17,10 @@ function geo(){
 
 });
 
+fromStation = undefined;
+fromStationNear = undefined;
+  toStation = undefined;
+  toStationNear = undefined;
 
 function populateMap(data) {
   console.log(data[0]);
@@ -40,11 +44,45 @@ function populateMap(data) {
             .addTo(map1)
             .bindPopup($el);
   });
- 
-  map1.on('popupopen', function() {  
+
+  map1.on('popupopen', function() {
+
+
 
   $('.pick-up-button').click(function() {
-      console.log("hello");
+      console.log($('.pick-up-button').data('bike'), "pickup");
+      wait = true;
+      selectedStation = $('.pick-up-button').data('bike');
+      populateStationInfo(selectedStation, "from");
+      waiting = setInterval(function(){
+        if (currStationNearby.models[4].history.length==24 && wait==true) {
+          wait = false;
+          findBestAlternative(currStation, currStationNearby);
+          fromStation = currStation;
+          fromStationNear = currStationNearby;
+        } else {
+          console.log("waiting");
+        }
+      }, 1000);
+
+  });
+
+    $('.drop-off-button').click(function() {
+      console.log($('.drop-off-button').data('bike'), "dropoff");
+      wait = true;
+      selectedStation = $('.pick-up-button').data('bike');
+      populateStationInfo(selectedStation, "to");
+      waiting = setInterval(function(){
+        if (currStationNearby.models[4].history.length==24 && wait==true) {
+          wait = false;
+          findBestAlternative(currStation, currStationNearby);
+          toStation = currStation;
+          toStationNear = currStationNearby;
+        } else {
+          console.log("waiting");
+        }
+      }, 1000);
+
     });
 
 });
