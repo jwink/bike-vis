@@ -40,8 +40,13 @@ function populateMap(data) {
             .addTo(map1)
             .bindPopup($el);
   });
+ 
+  map1.on('popupopen', function() {  
+
   $('.pick-up-button').click(function() {
       console.log("hello");
     });
+
+});
 
 }
