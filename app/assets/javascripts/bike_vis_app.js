@@ -90,4 +90,7 @@ function populateStationInfo(whichStation, direction) {
 
     currStationNearby.models.push(nearStation);
   });
+
+  findBestAlternative(currStation, currStationNearby);
+
 }

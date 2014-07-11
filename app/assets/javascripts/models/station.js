@@ -82,7 +82,14 @@ StationModel.prototype.getForecast = function(bikeOrDock) {
 }
 
 
+function findBestAlternative(tripStation, nearbyStations) {
+  if (tripStation.direction == "from") {
+    whichForecast = 'bikeForecast';
+  } else {
+    whichForecast = 'dockForecast'
+  }
 
+}
 
 
 
