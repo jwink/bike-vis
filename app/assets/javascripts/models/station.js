@@ -7,8 +7,8 @@ function StationModel(data, direction) {
   this.currHour = getCurrHour();
   this.bikeForecast = [];
   this.dockForecast = [];
+  this.bestAlternative = undefined;
 }
-
 
 function getCurrHour() {
   currTime = new Date();
@@ -21,22 +21,25 @@ function getCurrHour() {
   }
 };
 
-
-
 StationModel.prototype.getHistory = function() {
   var that = this;
-  $.ajax({
-    url: '/averages/averageinfo',
-    dataType: 'json',
-    data: {station: this.current.id},
-    success: function(data) {
-      data.sort(function(a, b){return a['hour']-b['hour']});
-      console.log(data);
-      that.history = data;
-      that.getForecast('bike');
-      that.getForecast("dock");
-    }
-  });
+  //debugger;
+  return function(){
+    //debugger;
+    var thys = that;
+    $.ajax({
+      url: '/averages/averageinfo',
+      dataType: 'json',
+      data: {station: thys.current.id},
+      success: function(data) {
+        //debugger;
+        data.sort(function(a, b){return a['hour']-b['hour']});
+        console.log(data);
+        thys.history = data;
+        thys.getStaticInfo();
+      }
+    });
+  }
 }
 
 StationModel.prototype.getStaticInfo = function() {
@@ -48,24 +51,26 @@ StationModel.prototype.getStaticInfo = function() {
     success: function(data) {
       console.log(data);
       that.staticInfo = data;
+      that.getForecast('bike');
+      that.getForecast("dock");
     }
   });
 }
 
 StationModel.prototype.getForecast = function(bikeOrDock) {
   if (bikeOrDock == "bike") {
-    current = this.current.availableBikes;
-    averageLookup = "avail_bikes_avg";
+    var current = this.current.availableBikes;
+    var averageLookup = "avail_bikes_avg";
   } else {
-    current = this.current.availableDocks;
-    averageLookup = "avail_docks_avg";
+    var current = this.current.availableDocks;
+    var averageLookup = "avail_docks_avg";
   }
-  forecast = [];
-  averageForCurrHour = this.history[this.currHour][averageLookup];
+  var forecast = [];
+  var averageForCurrHour = this.history[this.currHour][averageLookup];
   for (i=0; i<4; i++) {
-    averageForNextHour = this.history[this.currHour+1+i][averageLookup];
-    chgRelativeToNow = averageForNextHour - averageForCurrHour;
-    forecastForNextHour = current + chgRelativeToNow;
+    var averageForNextHour = this.history[this.currHour+1+i][averageLookup];
+    var chgRelativeToNow = averageForNextHour - averageForCurrHour;
+    var forecastForNextHour = current + chgRelativeToNow;
     if (forecastForNextHour < 0) {
       forecast.push(0);
     } else if (forecastForNextHour > this.staticInfo.capacity) {
@@ -81,14 +86,22 @@ StationModel.prototype.getForecast = function(bikeOrDock) {
   }
 }
 
-
 function findBestAlternative(tripStation, nearbyStations) {
   if (tripStation.direction == "from") {
-    whichForecast = 'bikeForecast';
+    var whichForecast = 'bikeForecast';
   } else {
-    whichForecast = 'dockForecast'
+    var whichForecast = 'dockForecast'
   }
-
+  currBest = nearbyStations.models[0];
+  console.log(currBest[whichForecast][0]);
+  console.log("hello");
+  $.each(nearbyStations.models, function(index, station) {
+    if (station[whichForecast][0] > currBest[whichForecast][0]) {
+      currBest = station;
+    }
+  });
+  tripStation.bestAlternative = currBest;
+  clearInterval(waiting);
 }
 
 

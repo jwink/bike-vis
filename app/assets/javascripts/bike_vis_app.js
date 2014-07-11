@@ -27,10 +27,20 @@ $(document).ready(function(){
   favorites.fetch();
 
   $('#station-select').on('change', function() {
+    wait = true;
     selectedStation = $('#station-select').val();
-    populateStationInfo(selectedStation, "from");
+    populateStationInfo(selectedStation, "to");
     //fromStation = currStation;
     //fromStationNear = currStationNearby;
+    waiting = setInterval(function(){
+      if (currStationNearby.models[4].history.length==24 && wait==true) {
+        wait = false;
+        console.log(currStationNearby);
+        findBestAlternative(currStation, currStationNearby);
+      } else {
+        console.log("waiting");
+      }
+    }, 1000);
   });
 
 
@@ -73,10 +83,11 @@ function populateStationInfo(whichStation, direction) {
     }
   });
   currStation = new StationModel(currInfoObject, direction);
-  currStation.getStaticInfo();
-  currStation.getHistory();
+  currStation.getHistory.call(currStation)();
+  //currStation.getHistory();
 
   currStationNearby = new StationCollection();
+  var stationsArr = []
   $.each(currStation.current.nearbyStations, function(index, nearby) {
     stationID = nearby.id;
     $.each(globalCurrentData, function(index, station) {
@@ -85,12 +96,23 @@ function populateStationInfo(whichStation, direction) {
       }
     });
     nearStation = new StationModel(currInfoObject, direction);
-    nearStation.getStaticInfo();
-    nearStation.getHistory();
+    nearStation.getHistory.call(nearStation)();
 
     currStationNearby.models.push(nearStation);
   });
+  // ajaxCalls = [];
+  // $.each(currStationNearby.models, function(index, station) {
+  //   ajaxCalls.push(station.getHistory.call(station)());
+  // });
 
-  findBestAlternative(currStation, currStationNearby);
+
+
+  // $.when.apply($, ajaxCalls).done(function(data){
+  //   console.log("hello");
+  //   //findBestAlternative(currStation, data);
+  // });
+
+
+  //findBestAlternative(currStation, currStationNearby);
 
 }
