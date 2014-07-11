@@ -33,8 +33,7 @@ StationModel.prototype.getHistory = function() {
       data.sort(function(a, b){return a['hour']-b['hour']});
       console.log(data);
       that.history = data;
-      that.getForecast('bike');
-      that.getForecast("dock");
+      that.getStaticInfo();
     }
   });
 }
@@ -48,6 +47,8 @@ StationModel.prototype.getStaticInfo = function() {
     success: function(data) {
       console.log(data);
       that.staticInfo = data;
+      that.getForecast('bike');
+      that.getForecast("dock");
     }
   });
 }
@@ -66,6 +67,8 @@ StationModel.prototype.getForecast = function(bikeOrDock) {
     averageForNextHour = this.history[this.currHour+1+i][averageLookup];
     chgRelativeToNow = averageForNextHour - averageForCurrHour;
     forecastForNextHour = current + chgRelativeToNow;
+    console.log(this.staticInfo.capacity);
+    console.log(forecastForNextHour);
     if (forecastForNextHour < 0) {
       forecast.push(0);
     } else if (forecastForNextHour > this.staticInfo.capacity) {

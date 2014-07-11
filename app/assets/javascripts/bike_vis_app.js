@@ -73,7 +73,7 @@ function populateStationInfo(whichStation, direction) {
     }
   });
   currStation = new StationModel(currInfoObject, direction);
-  currStation.getStaticInfo();
+  //currStation.getStaticInfo();
   currStation.getHistory();
 
   currStationNearby = new StationCollection();
@@ -85,7 +85,7 @@ function populateStationInfo(whichStation, direction) {
       }
     });
     nearStation = new StationModel(currInfoObject, direction);
-    nearStation.getStaticInfo();
+    //nearStation.getStaticInfo();
     nearStation.getHistory();
 
     currStationNearby.models.push(nearStation);
