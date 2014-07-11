@@ -3,7 +3,8 @@ class AveragesController < ApplicationController
 
   def averageinfo
     which_station = params[:station]
-    results = Average.where(station_id: which_station, day_of_week: 4)
+    day = Time.now.localtime.wday
+    results = Average.where(station_id: which_station, day_of_week: day)
     render json: results.to_json
   end
 

@@ -24,11 +24,13 @@ $(document).ready(function(){
 
   favorites = new BikeVisApp.Collections.Favorites();
 
-  favorites.fetch()
+  favorites.fetch();
 
   $('#station-select').on('change', function() {
     selectedStation = $('#station-select').val();
     populateStationInfo(selectedStation, "from");
+    //fromStation = currStation;
+    //fromStationNear = currStationNearby;
   });
 
 
@@ -71,8 +73,8 @@ function populateStationInfo(whichStation, direction) {
     }
   });
   currStation = new StationModel(currInfoObject, direction);
-  currStation.getHistory();
   currStation.getStaticInfo();
+  currStation.getHistory();
 
   currStationNearby = new StationCollection();
   $.each(currStation.current.nearbyStations, function(index, nearby) {
@@ -83,8 +85,12 @@ function populateStationInfo(whichStation, direction) {
       }
     });
     nearStation = new StationModel(currInfoObject, direction);
-    nearStation.getHistory();
     nearStation.getStaticInfo();
+    nearStation.getHistory();
+
     currStationNearby.models.push(nearStation);
   });
+
+  findBestAlternative(currStation, currStationNearby);
+
 }
