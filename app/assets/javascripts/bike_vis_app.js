@@ -9,15 +9,16 @@ window.BikeVisApp = {
 
 $(document).ready(function(){
 
+  favorites = new BikeVisApp.Collections.Favorites();
+  listView = new BikeVisApp.Views.FavoritesListView({collection: favorites, el: $('#favorites')});
+  favorites.fetch();
+
   map1 = L.mapbox.map('map1', 'jeffwinkler.ili3io27')
     .setView([40.745, -73.979], 14);
 
   globalCurrentData = undefined;
   BikeVisApp.initialize();
   currentData();
-  favorites = new BikeVisApp.Collections.Favorites();
-  listView = new BikeVisApp.Views.FavoritesListView({collection: favorites, el: $('#favorites')});
-  favorites.fetch();
 
   $('#station-select').on('change', function() {
     wait = true;
