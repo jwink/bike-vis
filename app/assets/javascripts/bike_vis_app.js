@@ -13,8 +13,8 @@ $(document).ready(function(){
   listView = new BikeVisApp.Views.FavoritesListView({collection: favorites, el: $('#favorites')});
   favorites.fetch();
 
-  map1 = L.mapbox.map('map1', 'jeffwinkler.ili3io27')
-    .setView([40.745, -73.979], 14);
+  map1 = L.mapbox.map('map1', 'jeffwinkler.iolcgn8o')
+    .setView([40.745, -73.979], 13);
 
   globalCurrentData = undefined;
   BikeVisApp.initialize();
