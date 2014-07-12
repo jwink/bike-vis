@@ -15,7 +15,11 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to '/'
+    respond_to do |format|
+      format.json {render :json => {message: "hello"}}
+      format.html {redirect_to '/'}
+    end
+
   end
 
 end

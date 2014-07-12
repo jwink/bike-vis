@@ -11,12 +11,14 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui-1.10.4.custom.min
 //= require jquery_ujs
 //= require turbolinks
 //= require underscore
 //= require backbone
 //= require bike_vis_app
 //= require bike_geo
+//= require accounts
 
 //= require_tree ../templates
 //= require_tree ./models
