@@ -26,3 +26,15 @@
     height: 80%;
     width: 50%;
 }
+
+.fav-icon {
+    background-color: orange;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.non-fav-icon {
+    background-color: green;
+    border-radius: 5px;
+    border: 1px solid black;
+}
