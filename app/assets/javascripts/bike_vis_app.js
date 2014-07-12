@@ -14,7 +14,7 @@ $(document).ready(function(){
   favorites.fetch();
 
   map1 = L.mapbox.map('map1', 'jeffwinkler.iolcgn8o')
-    .setView([40.745, -73.979], 13);
+    .setView([40.725, -73.979], 13);
 
   globalCurrentData = undefined;
   BikeVisApp.initialize();
