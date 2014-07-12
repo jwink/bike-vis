@@ -38,12 +38,23 @@ $(function(){
     });
 
    $('.add-as-fav').click(function() {
-     //  add logic to create a fav on server side
-     console.log($('.add-as-fav').data('bike'));
+     whichStation = $('.add-as-fav').data('bike');
+     whichUser = $('.user-id-span').data('user');
+     favorites.create({user_id: whichUser, station_id: whichStation});
+     window.location.reload();
    });
 
    $('.drop-as-fav').click(function() {
+     var thisFav = {};
      //  add logic to delete a fav on server side
+     var whichStation = $('.drop-as-fav').data('bike');
+     $.each(favorites.models, function(index, fav) {
+       if (fav.attributes.citibike_id == whichStation) {
+        thisFav = fav;
+       }
+     });
+     thisFav.destroy();
+     window.location.reload();
    });
 
 
