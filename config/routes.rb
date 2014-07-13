@@ -21,4 +21,6 @@ Rails.application.routes.draw do
 
   get '/stations/static', to: 'stations#static'
 
+  get '/vis', to: 'users#vis'
+
 end
