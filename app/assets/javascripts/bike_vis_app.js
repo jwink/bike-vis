@@ -18,7 +18,11 @@ $(document).ready(function(){
 
   globalCurrentData = undefined;
   BikeVisApp.initialize();
-  currentData();
+  var inVis = $('.in-vis-span').data('vis');
+  if (inVis != "in-vis") {
+    currentData();
+  }
+
 
   $('#station-select').on('change', function() {
     wait = true;
