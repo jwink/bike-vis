@@ -44,7 +44,7 @@ function populateFromEl() {
                .append(' +2hr: ')
                .append(makeSpan('from_two_hr', fromStation.bikeForecast[1]));
   a_label.html(makeSpan('from_alt', fromStation.bestAlternative.current.label));
-  a_avail.html('').append('Bikes: ').append(makeSpan('from_alt_avail', fromStation.bestAlternative.current.availableDocks));
+  a_avail.html('').append('Bikes: ').append(makeSpan('from_alt_avail', fromStation.bestAlternative.current.availableBikes));
   a_avgs.html('').append('Avg: ')
                  .append(makeSpan('from_alt_avg', fromStation.bestAlternative.history[currHour].avail_bikes_avg))
                  .append(' +1hr: ')
