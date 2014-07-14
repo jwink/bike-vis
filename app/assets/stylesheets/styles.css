@@ -14,7 +14,7 @@ body {
   color: lightblue;
   position: absolute;
   top: .12em;
-  left: 1.5em;
+  left: .5em;
   font-family: helvetica;
 }
 .account_stuff {
@@ -23,8 +23,15 @@ body {
   font-size: 1em;
   font-family: helvetica;
   position: absolute;
-  right: 2em;
+  margin-right: 2px;
+  /*right: 2em;*/
   top:.8em;
+}
+#login-link {
+  right: 2em;
+}
+#signup-link {
+  right: 4.5em;
 }
 
 .sidebar {
@@ -40,19 +47,54 @@ body {
 }
 
 .to, .from {
-  background-color: lightgrey;
+
+  background-color: black;
   font-family: helvetica;
-  color: white;
+  color: lightyellow;
   font-weight: bold;
+  margin:5px 5px 0 5px;
+  height: 1.4em;
+
+  border-radius: 5px;
+}
+
+.to {
+  margin-top: 9em;
+}
+
+.trip_label {
+  margin: .5em 1em;
 
 }
-.sidebar ul {
+.dropoff_info {
+  background-color: black;
+  font-family: helvetica;
+  color: lightblue;
+  font-weight: normal;
+  padding: .4em;
+  border-radius: 0px 0px 5px 5px; 
+}
+
+.pickup_info/*, .dropoff_info */{
+  /*display: none;*/
+  background-color: black;
+  font-family: helvetica;
+  color: lightblue;
+  font-weight: normal;
+  padding: .4em;
+  border-radius: 0px 0px 5px 5px; 
+
+
+}
+
+
+/*.sidebar ul {
   background-color: lightyellow;
 }
 .sidebar li {
   font-weight: normal;
   color: lightblue;
-}
+}*/
 
 #station-select {
   background-color: lightblue;
@@ -67,11 +109,10 @@ body {
 
 #map1 {
   position:absolute;
-  top:3.77em;
+  top:3.79em;
   bottom:0;
   right:0;
-  margin-top: .02em;
-  margin-left: 0;
+  margin-top: 0;
   padding: 0;
   height: 99%;
   width: 80%;
