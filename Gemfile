@@ -51,3 +51,4 @@ gem 'backbone-on-rails'
 
 gem 'citibikenyc'
 
+gem 'font-awesome-rails'
