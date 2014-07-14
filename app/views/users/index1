@@ -1,0 +1,10 @@
+
+<div id="map1" class="map"></div>
+
+
+
+<%= render 'accounts' %>
+
+<select id="station-select"></select>
+
+<%= render 'userstuff' %>

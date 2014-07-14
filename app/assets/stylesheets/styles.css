@@ -1,7 +1,48 @@
 body {
  background-color: lightyellow;
+ margin: 0px;
+}
+.top-bar {
+  height: 2.8em;
+  background-color: black;
+}
+.title {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  font-size: 2em;
+  color: lightblue;
+  position: absolute;
+  top: .12em;
+  left: 1.5em;
+  font-family: helvetica;
+}
+.signin {
+  text-decoration: none;
+  color: lightblue;
+  font-size: 1.2em;
+  font-style: ;
+  font-family: helvetica;
+  position: absolute;
+  right: 2em;
+  top:.8em;
 }
 
+#map1 {
+    position:absolute;
+    top:3.77em;
+    bottom:0;
+    left:;
+    right:0;
+    margin-top: .02em;
+    margin-left: 200px;
+    padding: 0;
+    height: 99%;
+    width: 80%;
+}
+
+
+/*leaflet map stuff*/
 .leaflet-popup-pane .leaflet-popup-tip {
 width: 30px;
 height: 17px;
@@ -13,7 +54,9 @@ margin: -10px auto 0;
 -o-transform: rotate(45deg);
 transform: rotate(45deg);
 }
-
+.leaflet-popup-pane button {
+  cursor: pointer;
+}
 .leaflet-container a.leaflet-popup-close-button {
 background: black !important;
 }
