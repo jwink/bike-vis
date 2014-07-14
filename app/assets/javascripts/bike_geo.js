@@ -23,7 +23,7 @@ fromStationNear = undefined;
   toStationNear = undefined;
 
 function populateMap(data) {
-  console.log(data[0]);
+  // console.log(data[0]);
   $.each(data, function(index, station) {
     var latitude = station.latitude;
     var longitude = station.longitude;
