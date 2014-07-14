@@ -16,7 +16,7 @@ function getSaturations() {
     dataType: 'json',
     success: function(data) {
       globalSaturations = data;
-      timeOutID = setInterval(runVis, 1000);
+      timeOutID = setInterval(runVis, 750);
       //runVis();
 
     }
@@ -27,25 +27,39 @@ function getSaturations() {
 function runVis() {
   if (counter > 0) {
     map1.removeLayer(stationGroup);
+    map1.removeLayer(bikeGroup);
   }
-  $('#hour').html(counter);
-  stationInfo = thisHour(counter);
+  $('#hour').html(counter%24);
+
+  stationInfo = thisHour(counter%24);
   counter = counter + 1;
   if (counter == 24) {
-    clearInterval(timeOutID);
+    //clearInterval(timeOutID);
   }
-  layerInfo = []
+  layerInfo = [];
+  bikesArray = [];
+  usedBikes = 0;
   $.each(stationInfo, function(index, station) {
-  var marker = L.circleMarker([station.latitude, station.longitude], {radius: (station.saturation * 20),
+    var marker = L.circleMarker([station.latitude, station.longitude], {radius: (station.saturation * 20),
                          color: '#000000',
                          fillColor: getFillColor(station.quadrant),
                          opacity: 1,
                          stroke: true,
                          fillOpacity: getOpacity(station.quadsatur)});
     layerInfo.push(marker);
+    usedBikes = usedBikes + station.avg_bikes;
   });
-  stationGroup = L.featureGroup(layerInfo);
+  var bikesInUse = L.circleMarker([40.741551, -73.989634], {radius: (4639-usedBikes)/20.0,
+                         color: '#000000',
+                         fillColor: '#ffffff',
+                         opacity: 1,
+                         stroke: true,
+                         fillOpacity: 0.75});
+  bikesArray.push(bikesInUse);
+  bikeGroup = L.featureGroup(bikesArray);
+  stationGroup = L.featureGroup(layerInfo)
   map1.addLayer(stationGroup);
+  map1.addLayer(bikeGroup);
 }
 
 function thisHour(hour) {
