@@ -2,21 +2,22 @@ $(function(){
 
   map1.on('popupopen', function() {
     $('.pick-up-button').click(function() {
-        console.log($('.pick-up-button').data('bike'), "pickup");
-        wait = true;
-        selectedStation = $('.pick-up-button').data('bike');
-        populateStationInfo(selectedStation, "from");
-        waiting = setInterval(function(){
-          if (currStationNearby.models[4].history.length==24 && wait==true) {
-            wait = false;
-            findBestAlternative(currStation, currStationNearby);
-            fromStation = currStation;
-            fromStationNear = currStationNearby;
-          } else {
-            console.log("waiting");
-          }
-        }, 1000);
-        map1.closePopup();
+      console.log($('.pick-up-button').data('bike'), "pickup");
+      wait = true;
+      selectedStation = $('.pick-up-button').data('bike');
+      populateStationInfo(selectedStation, "from");
+      waiting = setInterval(function(){
+        if (currStationNearby.models[4].history.length==24 && wait==true) {
+          wait = false;
+          findBestAlternative(currStation, currStationNearby);
+          fromStation = currStation;
+          fromStationNear = currStationNearby;
+          populateFromEl();
+        } else {
+          console.log("waiting");
+        }
+      }, 1000);
+      map1.closePopup();
     });
 
     $('.drop-off-button').click(function() {
@@ -30,6 +31,7 @@ $(function(){
           findBestAlternative(currStation, currStationNearby);
           toStation = currStation;
           toStationNear = currStationNearby;
+          populateToEl();
         } else {
           console.log("waiting");
         }
@@ -159,3 +161,21 @@ function populateMap(data) {
   L.control.layers(null, overlayMaps).addTo(map1);
 
 }
+
+
+function populateFromEl() {
+
+}
+
+
+function populateToEl() {
+
+}
+
+
+
+
+
+
+
+
