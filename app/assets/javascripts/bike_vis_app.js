@@ -18,7 +18,7 @@ $(document).ready(function(){
 
   globalCurrentData = undefined;
   BikeVisApp.initialize();
-  //currentData();
+  currentData();
 
   $('#station-select').on('change', function() {
     wait = true;

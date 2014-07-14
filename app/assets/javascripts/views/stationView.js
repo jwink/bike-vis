@@ -38,19 +38,19 @@ function populateFromEl() {
   label.html(makeSpan('from_station', fromStation.current.label));
   avail.html('').append('Bikes: ').append(makeSpan('from_avail', fromStation.current.availableBikes));
   avgs.html('').append('Avg: ')
-               .append(makeSpan('from_avg', fromStation.history[currHour].avail_bikes_avg))
+               .append(makeSpan('from_avg', fromStation.history[fromStation.currHour].avail_bikes_avg))
                .append(' +1hr: ')
-               .append(makeSpan('from_one_hr', fromStation.history[currHour + 1].avail_bikes_avg))
+               .append(makeSpan('from_one_hr', fromStation.bikeForecast[0]))
                .append(' +2hr: ')
-               .append(makeSpan('from_two_hr', fromStation.history[currHour + 2].avail_bikes_avg));
+               .append(makeSpan('from_two_hr', fromStation.bikeForecast[1]));
   a_label.html(makeSpan('from_alt', fromStation.bestAlternative.current.label));
   a_avail.html('').append('Bikes: ').append(makeSpan('from_alt_avail', fromStation.bestAlternative.current.availableDocks));
   a_avgs.html('').append('Avg: ')
                  .append(makeSpan('from_alt_avg', fromStation.bestAlternative.history[currHour].avail_bikes_avg))
                  .append(' +1hr: ')
-                 .append(makeSpan('from_alt_one_hr', fromStation.bestAlternative.history[currHour + 1].avail_bikes_avg))
+                 .append(makeSpan('from_alt_one_hr', fromStation.bestAlternative.bikeForecast[0]))
                  .append(' +2hr: ')
-                 .append(makeSpan('from_alt_two_hr', fromStation.bestAlternative.history[currHour + 2].avail_bikes_avg));
+                 .append(makeSpan('from_alt_two_hr', fromStation.bestAlternative.bikeForecast[1]));
 
 }
 
@@ -66,19 +66,19 @@ function populateToEl() {
   label.html(makeSpan('to_station', toStation.current.label));
   avail.html('').append('Docks: ').append(makeSpan('to_avail', toStation.current.availableDocks));
   avgs.html('').append('Avg: ')
-               .append(makeSpan('to_avg', toStation.history[currHour].avail_bikes_avg))
+               .append(makeSpan('to_avg', toStation.history[toStation.currHour].avail_docks_avg))
                .append(' +1hr: ')
-               .append(makeSpan('to_one_hr', toStation.history[currHour + 1].avail_bikes_avg))
+               .append(makeSpan('to_one_hr', toStation.dockForecast[0]))
                .append(' +2hr: ')
-               .append(makeSpan('to_two_hr', toStation.history[currHour + 2].avail_bikes_avg));
+               .append(makeSpan('to_two_hr', toStation.dockForecast[1]));
   a_label.html(makeSpan('to_alt', toStation.bestAlternative.current.label));
   a_avail.html('').append('Docks: ').append(makeSpan('to_alt_avail', toStation.bestAlternative.current.availableDocks));
   a_avgs.html('').append('Avg: ')
                  .append(makeSpan('to_alt_avg', toStation.bestAlternative.history[currHour].avail_docks_avg))
                  .append(' +1hr: ')
-                 .append(makeSpan('to_alt_one_hr', toStation.bestAlternative.history[currHour + 1].avail_docks_avg))
+                 .append(makeSpan('to_alt_one_hr', toStation.bestAlternative.dockForecast[0]))
                  .append(' +2hr: ')
-                 .append(makeSpan('to_alt_two_hr', toStation.bestAlternative.history[currHour + 2].avail_docks_avg));
+                 .append(makeSpan('to_alt_two_hr', toStation.bestAlternative.dockForecast[1]));
 
 }
 
