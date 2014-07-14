@@ -31,13 +31,13 @@
 
 .fav-icon {
     background-color: orange;
-    border-radius: 5px;
+    border-radius: 50%;
     border: 1px solid black;
 }
 
 .non-fav-icon {
     background-color:steelblue;
-    border-radius: 5px;
+    border-radius: 50%;
     border: 1px solid black;
 }
 
