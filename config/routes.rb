@@ -23,4 +23,6 @@ Rails.application.routes.draw do
 
   get '/vis', to: 'users#vis'
 
+  get '/saturations/vis', to: 'saturations#visdata'
+
 end
