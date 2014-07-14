@@ -17,7 +17,7 @@ function getSaturations() {
     dataType: 'json',
     success: function(data) {
       globalSaturations = data;
-      timeOutID = setInterval(runVis, 250);
+      timeOutID = setInterval(runVis, 750);
       //runVis();
 
     }
