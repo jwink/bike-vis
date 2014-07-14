@@ -9,6 +9,7 @@ $(function() {
 });
 
 counter = 0;
+startStop = "stop";
 
 function getSaturations() {
   $.ajax({
@@ -21,15 +22,28 @@ function getSaturations() {
 
     }
   });
+
+  $('#start-stop-button').click(function() {
+    if (startStop == "start") {
+      startStop = "stop";
+    } else {
+      startStop = "start";
+    }
+  });
 }
 
 
 function runVis() {
+  if (startStop == "stop") {
+    return 0;
+  }
+
   if (counter > 0) {
     map1.removeLayer(stationGroup);
     map1.removeLayer(bikeGroup);
   }
   $('#hour').html(counter%24);
+
 
   stationInfo = thisHour(counter%24);
   counter = counter + 1;
