@@ -17,10 +17,10 @@ body {
   left: 1.5em;
   font-family: helvetica;
 }
-.signin {
+.account_stuff {
   text-decoration: none;
   color: lightblue;
-  font-size: 1.2em;
+  font-size: 1em;
   font-style: ;
   font-family: helvetica;
   position: absolute;
@@ -32,7 +32,7 @@ body {
   position: absolute;
   margin: 0;
   top:2.79em;
-  bottom:0; 
+  bottom:0;
   left:0;
   width: 20%;
   height: 100%;
@@ -65,7 +65,7 @@ body {
   margin-top: .5em;
   z-index: 99;
   border: ;
-  
+
 }
 
 #map1 {
