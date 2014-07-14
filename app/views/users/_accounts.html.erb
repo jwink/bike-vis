@@ -30,8 +30,3 @@
     <% end %>
 </div>
 
-<% if current_user %>
-  <%= current_user.id %>
-  <%= link_to("Destroy", logout_path, method: :delete) %>
-<% end %>
-
