@@ -163,14 +163,7 @@ function populateMap(data) {
 }
 
 
-function populateFromEl() {
 
-}
-
-
-function populateToEl() {
-
-}
 
 
 

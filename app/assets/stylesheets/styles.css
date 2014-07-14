@@ -3,8 +3,9 @@ body {
  margin: 0px;
 }
 .top-bar {
-  height: 2.8em;
+  height: 2.77em;
   background-color: black;
+
 }
 .title {
   text-align: center;
@@ -40,9 +41,10 @@ body {
   top:2.79em;
   bottom:0;
   left:0;
-  width: 20%;
+  width: 19.54%;
   height: 100%;
-  background-color: lightyellow;
+  background-color: black;
+  border: 2px solid lightyellow;
 
 }
 
@@ -59,11 +61,15 @@ body {
 }
 
 .to {
-  margin-top: 9em;
+  margin-top: 12em;
 }
 
 .trip_label {
-  margin: .5em 1em;
+  margin: .5em 1em .1em .5em;
+
+}
+.sidebar span {
+  color: lightgray;
 
 }
 .dropoff_info {

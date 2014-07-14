@@ -7,15 +7,83 @@ function StationView(station) {
 //GO GET THIS.MODEL. ALL THE DATA TO SHOW - SHOW IT IN THE RIGHT PLACE FROM/TO
 StationView.prototype.render = function() {
   
-    newDiv = $("<div class='selected'>").html("<ul class='station-info'>");  
+    // newDiv = $("<div class='selected'>").html("<ul class='station-info'>");  
 
-    function addLi(li){
-      newDiv.append("<li class='station-detail'>").html(li);
+    function makeSpan(idee, infor){
+      var newSpan = $("<span>").attr('id', idee ).html(infor);
     }
 
-    addLi(this.model.current.label);
+    //   newDiv.append("<li class='station-detail'>").html(li);
+    // }
+
+    // addLi(this.model.current.label);
 
 
-    this.el = newDiv;
-    
+    this.el = newSpan; 
+
 }
+function makeSpan(idee, infor){
+      var newSpan = $("<span>").attr('id', idee ).html(infor);
+      return newSpan[0];
+    }
+    
+function populateFromEl() {
+  var label = $(".pickup_info .label");
+  var avail = $(".pickup_info .available");
+  var avgs = $(".pickup_info .averages");
+  var a_label = $(".pickup_info .a_label");
+  var a_avail = $(".pickup_info .a_available");
+  var a_avgs = $(".pickup_info .a_averages");
+  
+  label.html(makeSpan('from_station', fromStation.current.label));
+  avail.html('').append('Bikes: ').append(makeSpan('from_avail', fromStation.current.availableBikes));
+  avgs.html('').append('Avg: ')
+               .append(makeSpan('from_avg', fromStation.history[currHour].avail_bikes_avg))
+               .append(' +1hr: ')
+               .append(makeSpan('from_one_hr', fromStation.history[currHour + 1].avail_bikes_avg))
+               .append(' +2hr: ')
+               .append(makeSpan('from_two_hr', fromStation.history[currHour + 2].avail_bikes_avg));
+  a_label.html(makeSpan('from_alt', fromStation.bestAlternative.current.label));
+  a_avail.html('').append('Bikes: ').append(makeSpan('from_alt_avail', fromStation.bestAlternative.current.availableDocks));
+  a_avgs.html('').append('Avg: ')
+                 .append(makeSpan('from_alt_avg', fromStation.bestAlternative.history[currHour].avail_bikes_avg))
+                 .append(' +1hr: ')
+                 .append(makeSpan('from_alt_one_hr', fromStation.bestAlternative.history[currHour + 1].avail_bikes_avg))
+                 .append(' +2hr: ')
+                 .append(makeSpan('from_alt_two_hr', fromStation.bestAlternative.history[currHour + 2].avail_bikes_avg));
+
+}
+
+
+function populateToEl() {
+  var label = $(".dropoff_info .label");
+  var avail = $(".dropoff_info .available");
+  var avgs = $(".dropoff_info .averages");
+  var a_label = $(".dropoff_info .a_label");
+  var a_avail = $(".dropoff_info .a_available");
+  var a_avgs = $(".dropoff_info .a_averages");
+  
+  label.html(makeSpan('to_station', toStation.current.label));
+  avail.html('').append('Docks: ').append(makeSpan('to_avail', toStation.current.availableDocks));
+  avgs.html('').append('Avg: ')
+               .append(makeSpan('to_avg', toStation.history[currHour].avail_bikes_avg))
+               .append(' +1hr: ')
+               .append(makeSpan('to_one_hr', toStation.history[currHour + 1].avail_bikes_avg))
+               .append(' +2hr: ')
+               .append(makeSpan('to_two_hr', toStation.history[currHour + 2].avail_bikes_avg));
+  a_label.html(makeSpan('to_alt', toStation.bestAlternative.current.label));
+  a_avail.html('').append('Docks: ').append(makeSpan('to_alt_avail', toStation.bestAlternative.current.availableDocks));
+  a_avgs.html('').append('Avg: ')
+                 .append(makeSpan('to_alt_avg', toStation.bestAlternative.history[currHour].avail_docks_avg))
+                 .append(' +1hr: ')
+                 .append(makeSpan('to_alt_one_hr', toStation.bestAlternative.history[currHour + 1].avail_docks_avg))
+                 .append(' +2hr: ')
+                 .append(makeSpan('to_alt_two_hr', toStation.bestAlternative.history[currHour + 2].avail_docks_avg));
+
+}
+
+
+
+
+
+
