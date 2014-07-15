@@ -32,6 +32,19 @@ ActiveRecord::Schema.define(version: 20140714150040) do
     t.datetime "updated_at"
   end
 
+  create_table "sats", force: true do |t|
+    t.integer "citibike_id"
+    t.float   "capacity"
+    t.string  "quadrant"
+    t.float   "avg_bikes"
+    t.float   "avg_docks"
+    t.integer "hour"
+    t.float   "saturation"
+    t.float   "latitude"
+    t.float   "longitude"
+    t.float   "quadsatur"
+  end
+
   create_table "saturations", force: true do |t|
     t.integer  "citibike_id"
     t.float    "capacity"

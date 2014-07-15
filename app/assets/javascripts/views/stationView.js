@@ -28,24 +28,25 @@ function makeSpan(idee, infor){
     }
     
 function populateFromEl() {
-  var label = $(".pickup_info .label");
-  var avail = $(".pickup_info .available");
-  var avgs = $(".pickup_info .averages");
-  var a_label = $(".pickup_info .a_label");
-  var a_avail = $(".pickup_info .a_available");
-  var a_avgs = $(".pickup_info .a_averages");
+  var label = $(".pickup .label");
+  var avail = $(".pickup .available");
+  var avgs = $(".pickup .averages");
+  var a_label = $(".pickup .a_label");
+  var a_avail = $(".pickup .a_available");
+  var a_avgs = $(".pickup .a_averages");
   
   label.html(makeSpan('from_station', fromStation.current.label));
-  avail.html('').append('Bikes: ').append(makeSpan('from_avail', fromStation.current.availableBikes));
-  avgs.html('').append('Avg: ')
-               .append(makeSpan('from_avg', fromStation.history[fromStation.currHour].avail_bikes_avg))
+  avail.html('').append('Bikes: ').append(makeSpan('from_avail', fromStation.current.availableBikes)).append(' Avg: ')
+               .append(makeSpan('from_avg', fromStation.history[fromStation.currHour].avail_bikes_avg));
+  avgs.html('').append('Forecast: ')
+               // .append(makeSpan('from_avg', fromStation.history[fromStation.currHour].avail_bikes_avg))
                .append(' +1hr: ')
                .append(makeSpan('from_one_hr', fromStation.bikeForecast[0]))
                .append(' +2hr: ')
                .append(makeSpan('from_two_hr', fromStation.bikeForecast[1]));
   a_label.html(makeSpan('from_alt', fromStation.bestAlternative.current.label));
   a_avail.html('').append('Bikes: ').append(makeSpan('from_alt_avail', fromStation.bestAlternative.current.availableBikes));
-  a_avgs.html('').append('Avg: ')
+  a_avgs.html('').append('Forecast: ')
                  .append(makeSpan('from_alt_avg', fromStation.bestAlternative.history[currHour].avail_bikes_avg))
                  .append(' +1hr: ')
                  .append(makeSpan('from_alt_one_hr', fromStation.bestAlternative.bikeForecast[0]))
@@ -56,16 +57,18 @@ function populateFromEl() {
 
 
 function populateToEl() {
-  var label = $(".dropoff_info .label");
-  var avail = $(".dropoff_info .available");
-  var avgs = $(".dropoff_info .averages");
-  var a_label = $(".dropoff_info .a_label");
-  var a_avail = $(".dropoff_info .a_available");
-  var a_avgs = $(".dropoff_info .a_averages");
+  var label = $(".dropoff .label");
+  var avail = $(".dropoff .available");
+  var avgs = $(".dropoff .averages");
+  var a_label = $(".dropoff .a_label");
+  var a_avail = $(".dropoff .a_available");
+  var a_avgs = $(".dropoff .a_averages");
   
   label.html(makeSpan('to_station', toStation.current.label));
-  avail.html('').append('Docks: ').append(makeSpan('to_avail', toStation.current.availableDocks));
-  avgs.html('').append('Avg: ')
+  avail.html('').append('Docks: ').append(makeSpan('to_avail', toStation.current.availableDocks))
+               .append(' Avg: ')
+               .append(makeSpan('to_avg', toStation.history[toStation.currHour].avail_docks_avg));
+  avgs.html('').append(' Avg: ')
                .append(makeSpan('to_avg', toStation.history[toStation.currHour].avail_docks_avg))
                .append(' +1hr: ')
                .append(makeSpan('to_one_hr', toStation.dockForecast[0]))

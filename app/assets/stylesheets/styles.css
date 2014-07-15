@@ -1,10 +1,11 @@
 body {
- background-color: lightgray;
+ background-color: black;
  margin: 0px;
 }
 .top-bar {
   height: 2.77em;
   background-color: black;
+
 
 }
 .title {
@@ -14,7 +15,7 @@ body {
   font-size: 2em;
   color: lightblue;
   position: absolute;
-  top: .12em;
+  top: .15em;
   left: .5em;
   font-family: helvetica;
 }
@@ -25,14 +26,18 @@ body {
   font-family: helvetica;
   position: absolute;
   margin-right: 2px;
-  /*right: 2em;*/
+  right: 2em;
   top:.8em;
 }
 #login-link {
   right: 2em;
 }
 #signup-link {
+  position: absolute;
   right: 4.5em;
+}
+.container {
+
 }
 
 .sidebar {
@@ -44,86 +49,74 @@ body {
   width: 19.54%;
   height: 100%;
   background-color: black;
-  border: 2px solid lightyellow;
+  /*border: 2px solid lightyellow;*/
 
 }
 
 .to, .from {
-
   background-color: black;
   font-family: helvetica;
   color: lightyellow;
   font-weight: bold;
-  margin:5px 5px 0 5px;
-  height: 1.4em;
+  margin: .1em -.35em 0 0;
 
-  border-radius: 5px;
+
+  /*border-radius: 5px*/;
 }
 
-.to {
-  margin-top: 12em;
-}
 
-.trip_label {
-  margin: .5em 1em .1em .5em;
-
-}
 .sidebar span {
   color: lightgray;
 
 }
-.dropoff_info {
-  background-color: black;
+
+.trip_label {
+  margin-right: -.9em;
+  padding: .5em 1em .1em .5em;
+  z-index: 9;
+  /*border-top-right-radius: 10px;*/
+
+}
+.from_head {
+  /*background-color: #2D2D45;*/
+}
+.to_head {
+  /*background-color: #2A2A2B;*/
+}
+
+.trip_info {
+  
   font-family: helvetica;
   color: lightblue;
   font-weight: normal;
   padding: .4em;
-  border-radius: 0px 0px 5px 5px;
+  /*border-radius: 0px 0px 5px 5px;*/
+  margin-right: -.9em;
+  margin-bottom: 1em;
+
 }
-
-.pickup_info/*, .dropoff_info */{
-  /*display: none;*/
-  background-color: black;
-  font-family: helvetica;
-  color: lightblue;
-  font-weight: normal;
-  padding: .4em;
-  border-radius: 0px 0px 5px 5px;
-
+.from {
+  background-color: #2D2D45;
 
 }
 
-
-/*.sidebar ul {
-  background-color: lightyellow;
+.to {
+  background-color: #2A2A2B;
+ 
 }
-.sidebar li {
-  font-weight: normal;
-  color: lightblue;
-}*/
 
-#station-select {
-  background-color: lightblue;
-  color: white;
-  font-size: 1.1em;
-  width: 12em;
-  position: absolute;
-  left: 24%;
-  margin-top: .5em;
-  z-index: 99;
-}
 
 #map1 {
   position:absolute;
-  top:3.79em;
-  bottom:0;
-  right:0;
-  margin-top: 0;
+  top:2.79em;
+  bottom:1em;
+  right: 1em;
+  margin-top: 1em;
   padding: 0;
-  height: 99%;
-  width: 80%;
+  height: 95%;
+  width: 79%;
+  z-index: -1;
 }
-
 
 /*leaflet map stuff*/
 .leaflet-popup-pane .leaflet-popup-tip {
