@@ -28,12 +28,12 @@ function makeSpan(idee, infor){
     }
     
 function populateFromEl() {
-  var label = $(".pickup_info .label");
-  var avail = $(".pickup_info .available");
-  var avgs = $(".pickup_info .averages");
-  var a_label = $(".pickup_info .a_label");
-  var a_avail = $(".pickup_info .a_available");
-  var a_avgs = $(".pickup_info .a_averages");
+  var label = $(".pickup .label");
+  var avail = $(".pickup .available");
+  var avgs = $(".pickup .averages");
+  var a_label = $(".pickup .a_label");
+  var a_avail = $(".pickup .a_available");
+  var a_avgs = $(".pickup .a_averages");
   
   label.html(makeSpan('from_station', fromStation.current.label));
   avail.html('').append('Bikes: ').append(makeSpan('from_avail', fromStation.current.availableBikes)).append(' Avg: ')
@@ -57,12 +57,12 @@ function populateFromEl() {
 
 
 function populateToEl() {
-  var label = $(".dropoff_info .label");
-  var avail = $(".dropoff_info .available");
-  var avgs = $(".dropoff_info .averages");
-  var a_label = $(".dropoff_info .a_label");
-  var a_avail = $(".dropoff_info .a_available");
-  var a_avgs = $(".dropoff_info .a_averages");
+  var label = $(".dropoff .label");
+  var avail = $(".dropoff .available");
+  var avgs = $(".dropoff .averages");
+  var a_label = $(".dropoff .a_label");
+  var a_avail = $(".dropoff .a_available");
+  var a_avgs = $(".dropoff .a_averages");
   
   label.html(makeSpan('to_station', toStation.current.label));
   avail.html('').append('Docks: ').append(makeSpan('to_avail', toStation.current.availableDocks))
