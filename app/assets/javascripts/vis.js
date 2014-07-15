@@ -5,7 +5,13 @@ $(function() {
   if (inVis == "in-vis") {
     getSaturations();
   }
-
+  $('#start-stop-button').click(function() {
+    if (startStop == "start") {
+      startStop = "stop";
+    } else {
+      startStop = "start";
+    }
+  });
 });
 
 counter = 0;
@@ -17,24 +23,14 @@ function getSaturations() {
     dataType: 'json',
     success: function(data) {
       globalSaturations = data;
-      timeOutID = setInterval(runVis, 750);
-      //runVis();
-
-    }
-  });
-
-  $('#start-stop-button').click(function() {
-    if (startStop == "start") {
-      startStop = "stop";
-    } else {
-      startStop = "start";
+      timeOutID = setInterval(function(){runVis("fromLoop");}, 750);
     }
   });
 }
 
 
-function runVis() {
-  if (startStop == "stop") {
+function runVis(whoseCalling) {
+  if (startStop == "stop" && whoseCalling=="fromLoop") {
     return 0;
   }
 
@@ -47,9 +43,6 @@ function runVis() {
 
   stationInfo = thisHour(counter%24);
   counter = counter + 1;
-  if (counter == 24) {
-    //clearInterval(timeOutID);
-  }
   layerInfo = [];
   bikesArray = [];
   usedBikes = 0;
@@ -76,6 +69,8 @@ function runVis() {
   map1.addLayer(bikeGroup);
 }
 
+
+
 function thisHour(hour) {
   hourArray = []
   $.each(globalSaturations, function(index, timeStation) {
@@ -83,7 +78,6 @@ function thisHour(hour) {
       hourArray.push(timeStation);
     }
   });
-  console.log(hourArray);
   return hourArray;
 }
 
@@ -112,22 +106,5 @@ function getFillColor(quad) {
       break;
 
   }
-
-}
-
-
-
-
-
-function what() {
-  map1.eachLayer(function(marker) {
-    if (marker.options != undefined) {
-      if (marker.options.stroke != undefined) {
-        console.log(parseInt(marker.options.className));
-        whatisthis = marker;
-      }
-    }
-    //console.log(marker.options);
-  });
 }
 
