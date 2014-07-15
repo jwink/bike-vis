@@ -1,6 +1,6 @@
 body {
  background-color: black;
- margin: 0px;
+ margin: 0;
 }
 .top-bar {
   height: 2.77em;
@@ -30,7 +30,7 @@ body {
   top:.8em;
 }
 .fa {
-  right: em;
+  right: 0;
 }
 #login-link {
   right: 6em;
