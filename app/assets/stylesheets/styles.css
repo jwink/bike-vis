@@ -25,7 +25,7 @@ body {
   font-family: helvetica;
   position: absolute;
   margin-right: 2px;
-  /*right: 2em;*/
+  right: 2em;
   top:.8em;
 }
 #login-link {
@@ -49,19 +49,18 @@ body {
 }
 
 .to, .from {
-
   background-color: black;
   font-family: helvetica;
   color: lightyellow;
   font-weight: bold;
   margin:5px 5px 0 5px;
-  height: 1.4em;
+
 
   border-radius: 5px;
 }
 
 .to {
-  margin-top: 12em;
+  margin-top: 0;
 }
 
 .trip_label {
