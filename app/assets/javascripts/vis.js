@@ -118,3 +118,15 @@ function getFillColor(quad) {
 
 
 
+
+function what() {
+  map1.eachLayer(function(marker) {
+    if (marker.options != undefined) {
+      if (marker.options.stroke != undefined) {
+        console.log(marker.options.className);
+      }
+    }
+    //console.log(marker.options);
+  });
+}
+

@@ -34,7 +34,7 @@ StationModel.prototype.getHistory = function() {
       success: function(data) {
         //debugger;
         data.sort(function(a, b){return a['hour']-b['hour']});
-        console.log(data);
+        //console.log(data);
         thys.history = data;
         thys.getStaticInfo();
       }
@@ -49,7 +49,7 @@ StationModel.prototype.getStaticInfo = function() {
     dataType: 'json',
     data: {station: this.current.id},
     success: function(data) {
-      console.log(data);
+      //console.log(data);
       that.staticInfo = data;
       that.getForecast('bike');
       that.getForecast("dock");
@@ -93,8 +93,8 @@ function findBestAlternative(tripStation, nearbyStations) {
     var whichForecast = 'dockForecast'
   }
   currBest = nearbyStations.models[0];
-  console.log(currBest[whichForecast][0]);
-  console.log("hello");
+  //console.log(currBest[whichForecast][0]);
+  //console.log("hello");
   $.each(nearbyStations.models, function(index, station) {
     if (station[whichForecast][0] > currBest[whichForecast][0]) {
       currBest = station;

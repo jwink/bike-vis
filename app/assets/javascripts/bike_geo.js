@@ -1,8 +1,20 @@
 $(function(){
 
-  map1.on('popupopen', function() {
+  prevFromFillColor = undefined;
+  prevFromFillOpacity = undefined;
+  prevFromSource = undefined;
+  prevToFillColor = undefined;
+  prevFromFillColor = undefined;
+  prevToSource = undefined;
+
+  map1.on('popupopen', function(e) {
+    //var popupObject = e;
     $('.pick-up-button').click(function() {
-      console.log($('.pick-up-button').data('bike'), "pickup");
+      if (prevFromSource != undefined) {
+        prevFromSource.setStyle({fillOpacity: prevFromFillOpacity, fillColor: prevFromFillColor});
+      }
+      //console.log(e);
+      //console.log($('.pick-up-button').data('bike'), "pickup");
       wait = true;
       selectedStation = $('.pick-up-button').data('bike');
       populateStationInfo(selectedStation, "from");
@@ -14,14 +26,22 @@ $(function(){
           fromStationNear = currStationNearby;
           populateFromEl();
         } else {
-          console.log("waiting");
+          //console.log("waiting");
         }
       }, 1000);
       map1.closePopup();
+      prevFromSource = e.popup._source;
+      prevFromFillOpacity = e.popup._source.options.fillOpacity;
+      prevFromFillColor = e.popup._source.options.fillColor;
+      e.popup._source.setStyle({fillOpacity: 0.85, fillColor: '#ffff00'});
+
     });
 
     $('.drop-off-button').click(function() {
-      console.log($('.drop-off-button').data('bike'), "dropoff");
+      if (prevToSource != undefined) {
+        prevToSource.setStyle({fillOpacity: prevToFillOpacity, fillColor: prevToFillColor});
+      }
+      //console.log($('.drop-off-button').data('bike'), "dropoff");
       wait = true;
       selectedStation = $('.pick-up-button').data('bike');
       populateStationInfo(selectedStation, "to");
@@ -37,6 +57,10 @@ $(function(){
         }
       }, 1000);
       map1.closePopup();
+      prevToSource = e.popup._source;
+      prevToFillOpacity = e.popup._source.options.fillOpacity;
+      prevToFillColor = e.popup._source.options.fillColor;
+      e.popup._source.setStyle({fillOpacity: 0.85, fillColor: '#ffff00'});
     });
 
    $('.add-as-fav').click(function() {
@@ -113,28 +137,58 @@ function populateMap(data) {
     var label = station.label;
     var bikes = station.availableBikes;
     var docks = station.availableDocks;
+    var saturation = (bikes/(bikes + docks));
+    //console.log(saturation);
     var $el = "<strong>"+label+"</strong>" + " &nbsp&nbsp&nbsp&nbspBikes: " + bikes + " Docks: " + docks +
               " </br><button data-bike=" + station.id +
               " class='pick-up-button'>Pick Up</button>" +
               " <button data-bike=" + station.id +
               " class='drop-off-button'>Drop Off</button>";
 
+
     if (user=='no_user') {
-      var marker = L.marker([latitude, longitude], {icon: nonFavIcon})
-              .bindPopup($el);
+      var marker = L.circleMarker([latitude, longitude], {radius: 8,
+                         color: '#000000',
+                         fillColor: '#0000ff',
+                         opacity: 1,
+                         stroke: true,
+                         className: station.id.toString(),
+                         fillOpacity: saturation})
+                     .bindPopup($el, {offset: [-12, 2]});
+
+
+      //var marker = L.marker([latitude, longitude], {icon: nonFavIcon})
+      //        .bindPopup($el);
       nonFavArray.push(marker);
     } else {
       if ($.inArray(station.id, userFavorites) != -1) {
         $el += " <button data-bike=" + station.id +
                " class='drop-as-fav'>Drop As Fav</button>";
-        var marker = L.marker([latitude, longitude], {icon: favIcon})
-              .bindPopup($el);
+          var marker = L.circleMarker([latitude, longitude], {radius: 8,
+                         color: '#000000',
+                         fillColor: '#ff00ff',
+                         opacity: 1,
+                         stroke: true,
+                         fillOpacity: (saturation+0.2)})
+                     .bindPopup($el, {offset: [-12, 2]});
+
+
+        //var marker = L.marker([latitude, longitude], {icon: favIcon})
+        //      .bindPopup($el);
         favArray.push(marker);
       } else {
         $el += " <button data-bike=" + station.id +
                " class='add-as-fav'>Add As Fav</button>";
-        var marker = L.marker([latitude, longitude], {icon: nonFavIcon})
-              .bindPopup($el);
+          var marker = L.circleMarker([latitude, longitude], {radius: 8,
+                         color: '#000000',
+                         fillColor: '#0000ff',
+                         opacity: 1,
+                         stroke: true,
+                         fillOpacity: saturation})
+                     .bindPopup($el, {offset: [-12, 2]});
+
+        //var marker = L.marker([latitude, longitude], {icon: nonFavIcon})
+        //      .bindPopup($el);
         nonFavArray.push(marker);
       }
     }
@@ -154,11 +208,12 @@ function populateMap(data) {
       "Others": nonFavStations
     }
     map1.addLayer(favStations);
+    L.control.layers(null, overlayMaps).addTo(map1);
   }
 
   map1.addLayer(nonFavStations);
 
-  L.control.layers(null, overlayMaps).addTo(map1);
+
 
 }
 
