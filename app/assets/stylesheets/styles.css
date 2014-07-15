@@ -52,30 +52,22 @@ body {
   /*border: 2px solid lightyellow;*/
 
 }
-
 .to, .from {
-  background-color: black;
   font-family: helvetica;
   color: lightyellow;
-  font-weight: bold;
+  font-weight: normal;
+  font-size: 1.1em;
   margin: .1em -.35em 0 0;
+  padding-left: .5em;
 
 
   /*border-radius: 5px*/;
 }
-
-
-.sidebar span {
-  color: lightgray;
-
-}
-
 .trip_label {
   margin-right: -.9em;
-  padding: .5em 1em .1em .5em;
+  padding: .5em 1em 0 .5em;
   z-index: 9;
   /*border-top-right-radius: 10px;*/
-
 }
 .from_head {
   /*background-color: #2D2D45;*/
@@ -83,28 +75,39 @@ body {
 .to_head {
   /*background-color: #2A2A2B;*/
 }
-
 .trip_info {
 
   font-family: helvetica;
   color: lightblue;
   font-weight: normal;
-  padding: .4em;
+  padding-top: 1em;
   /*border-radius: 0px 0px 5px 5px;*/
-  margin-right: -.9em;
   margin-bottom: 1em;
-
+  padding-left: .5em;
+}
+.pickup {
+}
+.trip_info span {
+  color: lightgray;
+}
+.info {
+  background-color: #2A2A2B;
+  width: 100%;
+  margin-left: -1em;
+  padding-left: 1em;
 }
 .from {
-  background-color: #2D2D45;
+  background-color: #2A2A3B;
 
 }
 
 .to {
-  background-color: #2A2A2B;
-
+  background-color: #2A2A3B;
 }
 
+.label {
+  margin-top: -.5em;
+}
 
 #map1 {
   position:absolute;
@@ -137,8 +140,8 @@ width: 30px;
 
   background: black !important;
 }
-
-
-
+.leaflet-control-zoom {
+  margin-left: 20px !important;
 }
+
 
