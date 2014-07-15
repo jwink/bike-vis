@@ -59,20 +59,15 @@ body {
   color: lightyellow;
   font-weight: bold;
   margin: .1em -.35em 0 0;
+  padding-left: .5em;
 
 
   /*border-radius: 5px*/;
 }
 
-
-.sidebar span {
-  color: lightgray;
-
-}
-
 .trip_label {
   margin-right: -.9em;
-  padding: .5em 1em .1em .5em;
+  padding: .5em 1em 0 .5em;
   z-index: 9;
   /*border-top-right-radius: 10px;*/
 
@@ -91,9 +86,11 @@ body {
   font-weight: normal;
   padding: .4em;
   /*border-radius: 0px 0px 5px 5px;*/
-  margin-right: -.9em;
   margin-bottom: 1em;
 
+}
+.trip_info span {
+  color: lightgray;
 }
 .from {
   background-color: #2D2D45;
@@ -105,6 +102,9 @@ body {
  
 }
 
+.label {
+  margin-top: -.5em;
+}
 
 #map1 {
   position:absolute;
@@ -137,8 +137,8 @@ width: 30px;
 
   background: black !important;
 }
-
-
-
+.leaflet-control-zoom {
+  margin-left: 20px !important;
 }
+
 
