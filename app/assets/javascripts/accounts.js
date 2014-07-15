@@ -27,6 +27,9 @@ function showHide() {
   } else {
     $('#login-link').hide();
     $('#signup-link').hide();
+    $('#fb').hide();
+    $('#twit').hide();
+
   }
 }
 

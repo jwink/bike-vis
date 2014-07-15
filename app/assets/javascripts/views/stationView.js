@@ -28,7 +28,7 @@ function makeSpan(idee, infor){
     }
     
 function populateFromEl() {
-  var label = $(".pickup .label");
+  var label = $(".from_head .label");
   var avail = $(".pickup .available");
   var avgs = $(".pickup .averages");
   var a_label = $(".pickup .a_label");
@@ -39,8 +39,7 @@ function populateFromEl() {
     return Math.round(num * 100) / 100;
   }
   
-  label.html(makeSpan('from_station', fromStation.current.label))
-    .css('padding-top', '.2em' );
+  label.html(makeSpan('from_station', fromStation.current.label));
   avail.html('').append('Bikes: ').append(makeSpan('from_avail', fromStation.current.availableBikes)).append(" | Avg: ")
                .append(makeSpan('from_avg', roundDec(fromStation.history[fromStation.currHour].avail_bikes_avg)));
   avgs.html('').append('Forecast: ')
