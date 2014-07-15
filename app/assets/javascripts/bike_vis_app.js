@@ -10,7 +10,7 @@ window.BikeVisApp = {
 $(document).ready(function(){
 
   favorites = new BikeVisApp.Collections.Favorites();
-  listView = new BikeVisApp.Views.FavoritesListView({collection: favorites, el: $('#favorites')});
+  //listView = new BikeVisApp.Views.FavoritesListView({collection: favorites, el: $('#favorites')});
   favorites.fetch();
 
   map1 = L.mapbox.map('map1', 'jeffwinkler.iolcgn8o')
@@ -22,26 +22,26 @@ $(document).ready(function(){
 
 
   globalCurrentData = undefined;
-  BikeVisApp.initialize();
+  //BikeVisApp.initialize();
   var inVis = $('.in-vis-span').data('vis');
   if (inVis != "in-vis") {
     currentData();
   }
 
 
-  $('#station-select').on('change', function() {
-    wait = true;
-    selectedStation = $('#station-select').val();
-    populateStationInfo(selectedStation, "to");
-    waiting = setInterval(function(){
-      if (currStationNearby.models[4].history.length==24 && wait==true) {
-        wait = false;
-        findBestAlternative(currStation, currStationNearby);
-      } else {
-        console.log("waiting");
-      }
-    }, 1000);
-  });
+  // $('#station-select').on('change', function() {
+  //   wait = true;
+  //   selectedStation = $('#station-select').val();
+  //   populateStationInfo(selectedStation, "to");
+  //   waiting = setInterval(function(){
+  //     if (currStationNearby.models[4].history.length==24 && wait==true) {
+  //       wait = false;
+  //       findBestAlternative(currStation, currStationNearby);
+  //     } else {
+  //       console.log("waiting");
+  //     }
+  //   }, 1000);
+  // });
 });
 
 function populateStationInfo(whichStation, direction) {
