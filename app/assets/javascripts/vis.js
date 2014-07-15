@@ -23,6 +23,7 @@ function getSaturations() {
     dataType: 'json',
     success: function(data) {
       globalSaturations = data;
+      runVis("firstRun");
       timeOutID = setInterval(function(){runVis("fromLoop");}, 750);
     }
   });
@@ -34,7 +35,7 @@ function runVis(whoseCalling) {
     return 0;
   }
 
-  if (counter > 0) {
+  if (whoseCalling != "firstRun") {
     map1.removeLayer(stationGroup);
     map1.removeLayer(bikeGroup);
   }
