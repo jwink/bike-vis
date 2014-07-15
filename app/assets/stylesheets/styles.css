@@ -1,5 +1,5 @@
 body {
- background-color: black;
+ background-color: lightyellow;
  margin: 0px;
 }
 .top-bar {
@@ -156,4 +156,7 @@ width: 30px;
   margin-left: 20px !important;
 }
 
+#hour {
+  color:lightyellow;
+}
 
