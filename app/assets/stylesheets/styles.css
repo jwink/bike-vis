@@ -58,7 +58,7 @@ body {
   top:2.79em;
   bottom:0;
   left:0;
-  width: 19.54%;
+  width: 22.54%;
   height: 100%;
   background-color: black;
   /*border: 2px solid lightyellow;*/
@@ -68,8 +68,8 @@ body {
   font-family: helvetica;
   color: lightyellow;
   font-weight: normal;
-  font-size: 1.1em;
-  margin: .1em -.35em 0 0;
+  font-size: 1.3em;
+  margin: 0 -.1em 0 0;
   padding-left: .5em;
 
 
@@ -88,11 +88,10 @@ body {
   /*background-color: #2A2A2B;*/
 }
 .trip_info {
-
   font-family: helvetica;
   color: lightblue;
   font-weight: normal;
-  padding-top: 1em;
+  padding-top: 0;
   /*border-radius: 0px 0px 5px 5px;*/
   margin-bottom: 1em;
   padding-left: .5em;
@@ -118,7 +117,9 @@ body {
 }
 
 .label {
-  margin-top: -.5em;
+  margin-top: 0;
+  color: lightgray;
+  padding-bottom: 0.1em;
 }
 
 #map1 {
@@ -129,7 +130,7 @@ body {
   margin-top: 1em;
   padding: 0;
   height: 95%;
-  width: 79%;
+  width: 77%;
   z-index: -1;
 }
 
