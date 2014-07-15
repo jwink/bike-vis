@@ -83,7 +83,7 @@ function thisHour(hour) {
       hourArray.push(timeStation);
     }
   });
-  console.log(hourArray);
+  //console.log(hourArray);
   return hourArray;
 }
 
@@ -115,19 +115,4 @@ function getFillColor(quad) {
 
 }
 
-
-
-
-
-function what() {
-  map1.eachLayer(function(marker) {
-    if (marker.options != undefined) {
-      if (marker.options.stroke != undefined) {
-        console.log(parseInt(marker.options.className));
-        whatisthis = marker;
-      }
-    }
-    //console.log(marker.options);
-  });
-}
 
