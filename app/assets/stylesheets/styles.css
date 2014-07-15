@@ -29,12 +29,24 @@ body {
   right: 2em;
   top:.8em;
 }
+.fa {
+  right: em;
+}
 #login-link {
-  right: 2em;
+  right: 6em;
 }
 #signup-link {
   position: absolute;
-  right: 4.5em;
+  right: 8.5em;
+}
+.twit, #twit{
+  position: absolute;
+  margin-right: 2.6em;
+}
+.fb, #fb{
+  margin-right: 1.4em;
+
+
 }
 .container {
 
