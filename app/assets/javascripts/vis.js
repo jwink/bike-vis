@@ -123,7 +123,8 @@ function what() {
   map1.eachLayer(function(marker) {
     if (marker.options != undefined) {
       if (marker.options.stroke != undefined) {
-        console.log(marker.options.className);
+        console.log(parseInt(marker.options.className));
+        whatisthis = marker;
       }
     }
     //console.log(marker.options);

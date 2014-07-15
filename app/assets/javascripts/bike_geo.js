@@ -4,8 +4,15 @@ $(function(){
   prevFromFillOpacity = undefined;
   prevFromSource = undefined;
   prevToFillColor = undefined;
-  prevFromFillColor = undefined;
+  prevToFillOpacity = undefined;
   prevToSource = undefined;
+
+  prevFromAltFillColor = undefined;
+  prevFromAltFillOpacity = undefined;
+  prevFromAltMarker = undefined;
+  prevToAltFillColor = undefined;
+  prevToAltFillOpacity = undefined;
+  prevToAltMarker = undefined;
 
   map1.on('popupopen', function(e) {
     //var popupObject = e;
@@ -25,6 +32,8 @@ $(function(){
           fromStation = currStation;
           fromStationNear = currStationNearby;
           populateFromEl();
+          //console.log(fromStation.bestAlternative.current.id);
+          chageAltColor(fromStation.bestAlternative.current.id, "from");
         } else {
           //console.log("waiting");
         }
@@ -52,6 +61,7 @@ $(function(){
           toStation = currStation;
           toStationNear = currStationNearby;
           populateToEl();
+          chageAltColor(toStation.bestAlternative.current.id, "to");
         } else {
           console.log("waiting");
         }
@@ -169,6 +179,7 @@ function populateMap(data) {
                          fillColor: '#ff00ff',
                          opacity: 1,
                          stroke: true,
+                         className: station.id.toString(),
                          fillOpacity: (saturation+0.2)})
                      .bindPopup($el, {offset: [-12, 2]});
 
@@ -184,6 +195,7 @@ function populateMap(data) {
                          fillColor: '#0000ff',
                          opacity: 1,
                          stroke: true,
+                         className: station.id.toString(),
                          fillOpacity: saturation})
                      .bindPopup($el, {offset: [-12, 2]});
 
@@ -212,14 +224,44 @@ function populateMap(data) {
   }
 
   map1.addLayer(nonFavStations);
-
-
-
 }
 
 
 
+function chageAltColor(id, direction) {
+  console.log(id);
+  map1.eachLayer(function(marker) {
+    if (marker.options != undefined) {
+      if (marker.options.stroke != undefined) {
+        if (parseInt(marker.options.className) == id) {
+          currAlt = marker;
+        }
+      }
+    }
+  });
 
+
+  if (direction == "from") {
+    if (prevFromAltMarker != undefined) {
+      prevFromAltMarker.setStyle({fillColor: prevFromAltFillColor, fillOpacity: prevFromAltFillOpacity});
+    }
+    // populate prev vars, update curr colors
+    prevFromAltFillColor = currAlt.options.fillColor;
+    prevFromAltFillOpacity = currAlt.options.fillOpacity;
+    prevFromAltMarker = currAlt;
+    currAlt.setStyle({fillColor: '#00ff00', fillOpacity: 0.85});
+  } else {
+    if (prevToAltMarker != undefined) {
+      prevToAltMarker.setStyle({fillColor: prevToAltFillColor, fillOpacity: prevToAltFillOpacity});
+    }
+    // populate prev vars, update curr colors
+    prevToAltFillColor = currAlt.options.fillColor;
+    prevToAltFillOpacity = currAlt.options.fillOpacity;
+    prevToAltMarker = currAlt;
+    currAlt.setStyle({fillColor: '#00ff00', fillOpacity: 0.85});
+  }
+
+}
 
 
 
