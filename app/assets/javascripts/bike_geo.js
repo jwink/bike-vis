@@ -206,6 +206,12 @@ function populateMap(data) {
     }
   });
 
+  //  in use marker...create two markers, one for max one for now
+  //  add into nonFavArray
+
+
+
+
   nonFavStations = L.featureGroup(nonFavArray);
 
 

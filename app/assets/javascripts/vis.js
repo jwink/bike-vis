@@ -12,6 +12,24 @@ $(function() {
       startStop = "start";
     }
   });
+
+  $( "#slider-vertical" ).slider({
+    orientation: "vertical",
+    min: 0,
+    max: 23,
+    value: 8,
+    animate: 'slow',
+    slide: function(event, ui) {
+      console.log(23-ui.value);
+      counter = 23-ui.value;
+      runVis("fromSlider");
+    }
+  });
+
+
+
+
+
 });
 
 counter = 0;
@@ -39,7 +57,23 @@ function runVis(whoseCalling) {
     map1.removeLayer(stationGroup);
     map1.removeLayer(bikeGroup);
   }
-  $('#hour').html(counter%24);
+
+  $('#slider-vertical').slider("value", 23-counter%24);
+
+  actualHour = counter%12;
+  if (actualHour == 0) {
+    actualHour = 12;
+  }
+
+  if (counter%24 == counter%12) {
+    amPm = "am";
+  } else {
+    amPm = "pm";
+  }
+
+  clock = actualHour + ":00" + amPm;
+
+  $('#hour').html(clock);
 
 
   stationInfo = thisHour(counter%24);
