@@ -1,12 +1,55 @@
 == README
 
-This application has two purposes.  One, as a trip planning tool for New York Citibike users.  Two, as a data visualization for weekday Citibike trips.
+This application has two purposes.  First, as a trip planning tool for New York Citibike users.  Second, as a data visualization for weekday Citibike trips.
 
 Trip Planner:
 
-Trip planning tool is the main homepage.  All citibike stations are mapped with opacity signalling how full each station is: (bikes/total slots).
+Helps a rider plan route by showing not only current status of bikes/docks but also a prediction for bikes/docks over the next 2 hours based on historical data.  Full instructions below and on site itself.
 
-A user can click on a station and choose to either pick up or drop off a bike.  Once chosen, ......
+Data Visualization:
+
+There are two data visualizations.
+
+A "flow" visualization which shows the movement of bikes throughout the day.  Data is based on average movements for weekdays only with data collected every hour from 6/2/14 through 7/11/14.  Full details below and on site.
+
+A "static" visualization which filters stations based on certain attributes, described below.  The basic idea was to find any stations that are generally empty, full, "just right", or very volatile.
+
+A note on the data:
+
+Data is collected every hour on the hour from the Citibike API, taking a snapshot of the bikes/docks for that time for each station.  This data is then used to generate the averages used for the predictions and the visualization.
+
+
+TRIP PLANNER INSTRUCTIONS
+-----------------------------------------------------------------------------------------
+Welcome to Bike-Vis!
+Plan your Citibike trip...
+-  Color represents station saturation with darker having more bikes.
+-  Click on a station for current status
+-  Choose "Pick Up" or "Drop Off" within station popup (turning station green) for more detailed information including:
+      -  Forecast of bikes/docks over next two hours based on historic data for the current day and time
+      -  The best alternative station to use (yellow color)
+-  Signup as a user or Login with Twitter/Facebook to save your favorite stations!
+   -  Add/drop stations by clicking on them and using buttons in popup.
+  -  Filter for just your favorites using Filter box in top right corner of map.
+
+
+FLOW VISUALIZATION INSTRUCTIONS
+-----------------------------------------------------------------------------------------
+Flow Visualization:
+-  Based on data collected every hour from June 2, 2014 through July 11, 2014
+-  Filtered for weekdays only
+-  NYC split into five sections, each section represented by a color.  The darkness of color represents how saturated with bikes that section is as a whole
+-  Station radius represents saturation for that particular station
+-  White circle in middle represents bikes in use
+
+
+STATIC VISUALIZATION INSTRUCTIONS
+-----------------------------------------------------------------------------------------
+Static Visualization:
+-  Yellow:  Stations where saturation is always less than 30%
+-  Gray:  Stations where saturation is always greater than 50%.
+-  Green:  Stations never too full or too empty, saturation always between 40% and 60%
+-  Orange:  Volatile stations.  The difference between max saturation and min saturation over the day is greater than 70%.
 
 
 
@@ -16,28 +59,5 @@ A user can click on a station and choose to either pick up or drop off a bike.  
 
 
 
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 
 <tt>rake doc:app</tt>.
