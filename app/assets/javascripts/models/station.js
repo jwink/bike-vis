@@ -15,9 +15,9 @@ function getCurrHour() {
   currHour = currTime.getHours();
   currMin = currTime.getMinutes();
   if (currMin > 30) {
-    return currHour+1;
+    return ((currHour+1)%24);
   } else {
-    return currHour;
+    return (currHour%24);
   }
 };
 
@@ -63,7 +63,7 @@ StationModel.prototype.getForecast = function(bikeOrDock) {
   var forecast = [];
   var averageForCurrHour = this.history[this.currHour][averageLookup];
   for (i=0; i<4; i++) {
-    var averageForNextHour = this.history[this.currHour+1+i][averageLookup];
+    var averageForNextHour = this.history[(this.currHour+1+i)%24][averageLookup];
     var chgRelativeToNow = averageForNextHour - averageForCurrHour;
     var forecastForNextHour = current + chgRelativeToNow;
     if (forecastForNextHour < 0) {
