@@ -22,6 +22,10 @@ $(document).ready(function(){
 
 });
 
+function close(div){
+  $(div).css('display','none')
+}
+
 function populateStationInfo(whichStation, direction) {
   $.each(globalCurrentData, function(index, station) {
    if (station.id == whichStation) {

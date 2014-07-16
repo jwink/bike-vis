@@ -36,6 +36,7 @@ $(function(){
   });
   map1.on('popupopen', function(e) {
     $('.pick-up-button').click(function() {
+      close('.welcome');
       if (prevFromSource != undefined) {
         prevFromSource.setStyle({fillOpacity: prevFromFillOpacity, fillColor: prevFromFillColor});
       }
@@ -49,7 +50,7 @@ $(function(){
           fromStation = currStation;
           fromStationNear = currStationNearby;
           populateFromEl();
-          
+
           chageAltColor(fromStation.bestAlternative.current.id, "from");
         } else {
         }
@@ -61,6 +62,7 @@ $(function(){
       e.popup._source.setStyle({fillOpacity: 0.85, fillColor: '#00ff00'});
     });
     $('.drop-off-button').click(function() {
+      close('.welcome');
       if (prevToSource != undefined) {
         prevToSource.setStyle({fillOpacity: prevToFillOpacity, fillColor: prevToFillColor});
       }
