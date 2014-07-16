@@ -99,7 +99,7 @@ function runVis(whoseCalling) {
                          fillOpacity: 0.75});
   bikesArray.push(bikesInUse);
   bikeGroup = L.featureGroup(bikesArray);
-  stationGroup = L.featureGroup(layerInfo)
+  stationGroup = L.featureGroup(layerInfo);
   map1.addLayer(stationGroup);
   map1.addLayer(bikeGroup);
 }

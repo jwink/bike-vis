@@ -7,6 +7,12 @@ class SaturationsController < ApplicationController
     render json: results.to_json
   end
 
+  def extravis
+    results = Saturation.all
+
+    render json: results.to_json
+  end
+
 
 
 end

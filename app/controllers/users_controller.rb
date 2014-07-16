@@ -43,7 +43,9 @@ class UsersController < ApplicationController
 
   end
 
+  def staticvis
 
+  end
 
 
   private

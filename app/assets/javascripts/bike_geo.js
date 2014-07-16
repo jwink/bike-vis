@@ -14,6 +14,17 @@ $(function(){
   prevToAltFillOpacity = undefined;
   prevToAltMarker = undefined;
 
+  map1.on('zoomend', function() {
+    var inVis = $('.in-vis-span').data('vis');
+    if (inVis != "in-vis") {
+      if (inVis!="static") {
+        console.log(map1.getZoom());
+      }
+    }
+  });
+
+
+
   map1.on('popupopen', function(e) {
     //var popupObject = e;
     $('.pick-up-button').click(function() {
@@ -42,7 +53,7 @@ $(function(){
       prevFromSource = e.popup._source;
       prevFromFillOpacity = e.popup._source.options.fillOpacity;
       prevFromFillColor = e.popup._source.options.fillColor;
-      e.popup._source.setStyle({fillOpacity: 0.85, fillColor: '#ffff00'});
+      e.popup._source.setStyle({fillOpacity: 0.85, fillColor: '#00ff00'});
 
     });
 
@@ -70,7 +81,7 @@ $(function(){
       prevToSource = e.popup._source;
       prevToFillOpacity = e.popup._source.options.fillOpacity;
       prevToFillColor = e.popup._source.options.fillColor;
-      e.popup._source.setStyle({fillOpacity: 0.85, fillColor: '#ffff00'});
+      e.popup._source.setStyle({fillOpacity: 0.85, fillColor: '#00ff00'});
     });
 
    $('.add-as-fav').click(function() {
@@ -255,7 +266,7 @@ function chageAltColor(id, direction) {
     prevFromAltFillColor = currAlt.options.fillColor;
     prevFromAltFillOpacity = currAlt.options.fillOpacity;
     prevFromAltMarker = currAlt;
-    currAlt.setStyle({fillColor: '#00ff00', fillOpacity: 0.85});
+    currAlt.setStyle({fillColor: '#ffff00', fillOpacity: 0.85});
   } else {
     if (prevToAltMarker != undefined) {
       prevToAltMarker.setStyle({fillColor: prevToAltFillColor, fillOpacity: prevToAltFillOpacity});
@@ -264,7 +275,7 @@ function chageAltColor(id, direction) {
     prevToAltFillColor = currAlt.options.fillColor;
     prevToAltFillOpacity = currAlt.options.fillOpacity;
     prevToAltMarker = currAlt;
-    currAlt.setStyle({fillColor: '#00ff00', fillOpacity: 0.85});
+    currAlt.setStyle({fillColor: '#ffff00', fillOpacity: 0.85});
   }
 
 }

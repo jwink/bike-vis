@@ -25,7 +25,9 @@ $(document).ready(function(){
   //BikeVisApp.initialize();
   var inVis = $('.in-vis-span').data('vis');
   if (inVis != "in-vis") {
-    currentData();
+    if (inVis!="static") {
+      currentData();
+    }
   }
 
 
