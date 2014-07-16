@@ -40,11 +40,13 @@ class UsersController < ApplicationController
   end
 
   def vis
-
+    @user = User.new
+    @time = Time.now.localtime.wday
   end
 
   def staticvis
-
+    @user = User.new
+    @time = Time.now.localtime.wday
   end
 
 
