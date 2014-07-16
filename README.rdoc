@@ -1,5 +1,22 @@
 == README
 
+This application has two purposes.  One, as a trip planning tool for New York Citibike users.  Two, as a data visualization for weekday Citibike trips.
+
+Trip Planner:
+
+Trip planning tool is the main homepage.  All citibike stations are mapped with opacity signalling how full each station is: (bikes/total slots).
+
+A user can click on a station and choose to either pick up or drop off a bike.  Once chosen, ......
+
+
+
+
+
+
+
+
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
