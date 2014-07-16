@@ -30,7 +30,7 @@ function makeSpan(idee, infor){
 function populateFromEl() {
   var label = $(".from_head .label");
   var avail = $(".pickup .available");
-  var avgs = $(".pickup .averages");
+  var avgs = $(".pickup .forecasts");
   var a_label = $(".pickup .a_label");
   var a_avail = $(".pickup .a_available");
   var a_avgs = $(".pickup .a_averages");
@@ -39,26 +39,29 @@ function populateFromEl() {
     return Math.round(num * 100) / 100;
   }
   
+  
   label.html(makeSpan('from_station', fromStation.current.label));
-  avail.html('').append('Bikes: ').append(makeSpan('from_avail', fromStation.current.availableBikes)).append(" | Avg: ")
+  avail.html('').append('Bikes: ').append(makeSpan('from_avail', fromStation.current.availableBikes))
                .append(makeSpan('from_avg', roundDec(fromStation.history[fromStation.currHour].avail_bikes_avg)));
-  avgs.html('').append('Forecast: ')
-               // .append(makeSpan('from_avg', fromStation.history[fromStation.currHour].avail_bikes_avg))
-               .append(' +1hr: ')
+               $('#from_avg').prepend('Avg: ');
+  avgs.html("<span id='casts'>Forecasts</span>"+'<br/>');
+                  avgs.append((currStation.currHour % 12)+ 1 + ':00 ')
                .append(makeSpan('from_one_hr', roundDec(fromStation.bikeForecast[0])))
-               .append(' +2hr: ')
+               .append((currStation.currHour % 12)+ 2 + ':00 ')
                .append(makeSpan('from_two_hr', roundDec(fromStation.bikeForecast[1])));
   a_label.html('')
          .append('Alternative: ')
          .append(makeSpan('from_alt', fromStation.bestAlternative.current.label));
   a_avail.html('').append('Bikes: ').append(makeSpan('from_alt_avail', fromStation.bestAlternative.current.availableBikes));
-  a_avgs.html('').append('Forecast: ')
-                 .append(makeSpan('from_alt_avg', roundDec(fromStation.bestAlternative.history[currHour].avail_bikes_avg)))
-                 .append(' +1hr: ')
+  a_avgs.html("<span id='casts'>Forecasts</span>"+'<br/>');
+                  a_avgs.append((currStation.currHour % 12)+ 1 + ':00 ')
                  .append(makeSpan('from_alt_one_hr', roundDec(fromStation.bestAlternative.bikeForecast[0])))
-                 .append(' +2hr: ')
+                 .append((currStation.currHour % 12)+ 2 + ':00 ')
                  .append(makeSpan('from_alt_two_hr', roundDec(fromStation.bestAlternative.bikeForecast[1])));
 
+
+  $('.sidebar').css('width','30%');
+  $('#map1').css('width', '68.5%');
 }
 
 
