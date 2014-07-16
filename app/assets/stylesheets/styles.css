@@ -44,7 +44,7 @@ body {
 }
 .welcome ul {
   margin-top: 0;
-  margin-left: -1em;
+  margin-left: -.5em;
 
 }
 .welcome .w_close {
