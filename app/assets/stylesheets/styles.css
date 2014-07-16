@@ -22,7 +22,8 @@ body {
 
 .welcome {
   width: 30%;
-  min-width: 12em;
+  min-width: 14em;
+  max-width: 18em;
   position: absolute;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 300;
@@ -35,6 +36,13 @@ body {
   opacity: .85;
   padding-right: .6em;
   margin-top: 10em;
+}
+  .visinfo {
+  min-width: 12em;
+  right: 1em;
+}
+.staticinfo {
+  min-width: 11em;
 }
 .welcome h3 {
   text-align: center;
@@ -336,7 +344,7 @@ body {
   background-color: #2A2A3B;
   background: -webkit-gradient(linear, left top, left bottom, from(#000000), to(#2A2A3F));
   background: -moz-linear-gradient(top,  #000000,  #2A2A1F);
-  color: lightyellow;
+  color: lightblue;
   border-radius: 5px;
 }
 }
