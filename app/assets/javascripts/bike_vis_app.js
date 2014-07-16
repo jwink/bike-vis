@@ -19,6 +19,7 @@ $(document).ready(function(){
       currentData();
     }
   }
+
 });
 
 function populateStationInfo(whichStation, direction) {
