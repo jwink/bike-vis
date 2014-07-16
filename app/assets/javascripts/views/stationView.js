@@ -39,10 +39,12 @@ function populateFromEl() {
     return Math.round(num * 100) / 100;
   }
   
-  
+  var dot = $("<div id = 'dot'>").css({'width':'.5em', 'height':'.5em', 'border-radius':'50%', 'background-color':'green', 'display':'inline-block', 'margin-bottom':'.1em', 'margin-left':'.3em'});
+  var aDot = $("<div id = 'dot'>").css({'width':'.5em', 'height':'.5em', 'border-radius':'50%', 'background-color':'yellow', 'display':'inline-block', 'margin-bottom':'.1em', 'margin-left':'.1em'});
   
 
-  label.html(makeSpan('from_station', fromStation.current.label));
+
+  label.html(makeSpan('from_station', fromStation.current.label)).append(dot);
   avail.html('').append('Bikes: ').append(makeSpan('from_avail', fromStation.current.availableBikes))
                .append(makeSpan('from_avg', roundDec(fromStation.history[fromStation.currHour].avail_bikes_avg)));
                $('#from_avg').prepend('Avg: ');
@@ -53,7 +55,7 @@ function populateFromEl() {
                .append(makeSpan('from_two_hr', roundDec(fromStation.bikeForecast[1])));
   a_label.html('')
          .append('Alternative: ')
-         .append(makeSpan('from_alt', fromStation.bestAlternative.current.label));
+         .append(makeSpan('from_alt', fromStation.bestAlternative.current.label)).append(aDot);
   a_avail.html('').append('Bikes: ').append(makeSpan('from_alt_avail', fromStation.bestAlternative.current.availableBikes));
   a_avgs.html("<span id='casts'>Forecasts</span>"+'<br/>');
                   a_avgs.append((currStation.currHour % 12)+ 1 + ':00 ')
@@ -84,9 +86,10 @@ function populateToEl() {
   function roundDec(num){
     return Math.round(num * 100) / 100;
   }
+  var dot = $("<div id = 'dot'>").css({'width':'.5em', 'height':'.5em', 'border-radius':'50%', 'background-color':'green', 'display':'inline-block', 'margin-bottom':'.1em', 'margin-left':'.3em'});
+  var aDot = $("<div id = 'dot'>").css({'width':'.5em', 'height':'.5em', 'border-radius':'50%', 'background-color':'yellow', 'display':'inline-block', 'margin-bottom':'.1em', 'margin-left':'.1em'});
   
-  
-  label.html(makeSpan('to_station', toStation.current.label));
+  label.html(makeSpan('to_station', toStation.current.label)).append(dot);
   avail.html('').append('Docks: ').append(makeSpan('to_avail', toStation.current.availableDocks))
                .append(makeSpan('to_avg', roundDec(toStation.history[toStation.currHour].avail_docks_avg)));
                $('#to_avg').prepend('Avg: ');
@@ -97,7 +100,7 @@ function populateToEl() {
                .append(makeSpan('to_two_hr', roundDec(toStation.dockForecast[1])));
   a_label.html('')
          .append('Alternative: ')
-         .append(makeSpan('to_alt', toStation.bestAlternative.current.label));
+         .append(makeSpan('to_alt', toStation.bestAlternative.current.label)).append(aDot);
   a_avail.html('').append('Docks: ').append(makeSpan('to_alt_avail', toStation.bestAlternative.current.availableDocks));
   a_avgs.html("<span id='casts'>Forecasts</span>"+'<br/>');
                   a_avgs.append((currStation.currHour % 12)+ 1 + ':00 ')

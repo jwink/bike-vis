@@ -178,10 +178,12 @@ body {
 
 /*leaflet map stuff*/
 .leaflet-popup-pane .leaflet-popup-tip {
-width: 30px;
+  width: 30px;
   height: 17px;
-  padding: 1px;
+  padding: 7px;
   margin: -10px auto 0;
+  background: #2A2A3B;
+  opacity: 0.9;
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -190,10 +192,25 @@ width: 30px;
 }
 .leaflet-popup-pane button {
   cursor: pointer;
+
+}
+.leaflet-popup-content-wrapper {
+  border-radius: 13px !important;
+  color: lightyellow;
+  opacity: 0.9;
+}
+.leaflet-popup-content {
+  background: #2A2A2B;
+  background: -webkit-gradient(linear, left top, left bottom, from(#000000), to(#2A2A2B));
+  background: -moz-linear-gradient(top,  #000000,  #2A2A2B);
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300;
+  border-radius: 10px;
 }
 .leaflet-container a.leaflet-popup-close-button {
-
-  background: black !important;
+  border-top-right-radius: 10px; 
+  background: white !important;
+  z-index: 999;
 }
 .leaflet-control-zoom {
   margin-left: 25px !important;
@@ -227,17 +244,29 @@ width: 30px;
 
 /*vis styles*/
 
+.controller {
+  padding-left: 4em;
+}
+
 #hour {
   color:lightyellow;
-  margin-left: 1em;
+  margin-left: -1em;
   margin-top: 2em;
 }
 #start-stop-button {
- margin-left: 1em; 
-}
+  margin-left: -2em;
+  background-color: #2A2A3B;
+  background: -webkit-gradient(linear, left top, left bottom, from(#000000), to(#2A2A3F));
+  background: -moz-linear-gradient(top,  #000000,  #2A2A1F);
+  color: lightyellow;
+  border-radius: 5px;
+} 
+
 #slider-vertical {
-  margin-left: 2em;
+
+
   margin-top: 2em;
 }
+
 
 

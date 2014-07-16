@@ -1,22 +1,24 @@
-<i class="fa fa-facebook-square"></i>
-<i class="fa fa-twitter-square"></i>
 
-
+<div class="top-bar">
+    <h1 class="title">bike-vis</h1>
+  
+</div>
 
 <span class="in-vis-span" data-vis='in-vis'></span>
 
 
 <div class="sidebar">
-
-  <div id="hour"></div>
-  <div id="start-stop-div"><button id="start-stop-button">Start/Stop</button></div>
-
-  <div id="slider-vertical" style="height:200px;"></div>
-
-
-
+  <div class="controller">
+    <div id="hour"></div>
+    <div id="start-stop-div"><button id="start-stop-button">Start/Stop</button></div>
+    <br/>
+    <div id="slider-vertical" style="height:200px;"></div>
+  </div>
 </div>
 
 
 
 <div id="map1" class="map"></div>
+
+
+<%= render 'accounts' %>
