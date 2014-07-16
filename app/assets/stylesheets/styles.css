@@ -86,12 +86,12 @@ body {
   /*border-top-right-radius: 10px;*/
 }
 
-.from_head {
+.from_head, .to_head {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300;
   /*background-color: #2D2D45;*/
 }
-.to_head {
-  /*background-color: #2A2A2B;*/
-}
+
 .trip_info {
   font-family: helvetica;
   color: #2A2A3B;
@@ -131,9 +131,8 @@ body {
   padding-bottom: 0.1em;
 }
 .a_label {
-   font-family: helvetica;
-  /*color: lightyellow;*/
-  font-weight: normal;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300;
   color: lightblue;
   background-color: #2A2A2B;
   margin-left: -1em;
@@ -159,6 +158,8 @@ body {
 }
 #casts {
   color: lightblue;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300;
 }
 
 /*map style*/
