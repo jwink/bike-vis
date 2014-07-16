@@ -1,6 +1,8 @@
 
-$(function() {
+counter = 0;
+startStop = "stop";
 
+$(function() {
   var inVis = $('.in-vis-span').data('vis');
   if (inVis == "in-vis") {
     getSaturations();
@@ -12,7 +14,6 @@ $(function() {
       startStop = "start";
     }
   });
-
   $( "#slider-vertical" ).slider({
     orientation: "vertical",
     min: 0,
@@ -25,15 +26,8 @@ $(function() {
       runVis("fromSlider");
     }
   });
-
-
-
-
-
 });
 
-counter = 0;
-startStop = "stop";
 
 function getSaturations() {
   $.ajax({
@@ -52,30 +46,22 @@ function runVis(whoseCalling) {
   if (startStop == "stop" && whoseCalling=="fromLoop") {
     return 0;
   }
-
   if (whoseCalling != "firstRun") {
     map1.removeLayer(stationGroup);
     map1.removeLayer(bikeGroup);
   }
-
   $('#slider-vertical').slider("value", 23-counter%24);
-
   actualHour = counter%12;
   if (actualHour == 0) {
     actualHour = 12;
   }
-
   if (counter%24 == counter%12) {
     amPm = "am";
   } else {
     amPm = "pm";
   }
-
   clock = actualHour + ":00" + amPm;
-
   $('#hour').html(clock);
-
-
   stationInfo = thisHour(counter%24);
   counter = counter + 1;
   layerInfo = [];
@@ -99,12 +85,10 @@ function runVis(whoseCalling) {
                          fillOpacity: 0.75});
   bikesArray.push(bikesInUse);
   bikeGroup = L.featureGroup(bikesArray);
-  stationGroup = L.featureGroup(layerInfo)
+  stationGroup = L.featureGroup(layerInfo);
   map1.addLayer(stationGroup);
   map1.addLayer(bikeGroup);
 }
-
-
 
 function thisHour(hour) {
   hourArray = []
@@ -119,7 +103,6 @@ function thisHour(hour) {
 
 function getOpacity(quadSaturation) {
   return (quadSaturation - .05) * 1.4;
-
 }
 
 function getFillColor(quad) {
@@ -139,7 +122,6 @@ function getFillColor(quad) {
     default:
       return '#ffff00';
       break;
-
   }
 }
 
