@@ -79,8 +79,10 @@ body {
   margin-right: -.9em;
   padding: .5em 1em 0 .5em;
   z-index: 9;
+  border-top: 1px solid lightyellow;
   /*border-top-right-radius: 10px;*/
 }
+
 .from_head {
   /*background-color: #2D2D45;*/
 }
@@ -89,7 +91,7 @@ body {
 }
 .trip_info {
   font-family: helvetica;
-  color: lightblue;
+  color: #2A2A3B;
   font-weight: normal;
   padding-top: 0;
   /*border-radius: 0px 0px 5px 5px;*/
@@ -99,17 +101,16 @@ body {
 .pickup {
 }
 .trip_info span {
-  color: lightgray;
+  color: lightyellow;
 }
 .info {
-  background-color: #2A2A2B;
+  background-color: grey;
   width: 100%;
   margin-left: -1em;
   padding-left: 1em;
 }
 .from {
   background-color: #2A2A3B;
-
 }
 
 .to {
@@ -118,9 +119,37 @@ body {
 
 .label {
   margin-top: 0;
-  color: lightgray;
+  color: lightblue;
   padding-bottom: 0.1em;
 }
+.a_label {
+   font-family: helvetica;
+  /*color: lightyellow;*/
+  font-weight: normal;
+  color: lightblue;
+  background-color: #2A2A2B;
+  margin-left: -1em;
+  padding-left: 1em;
+}
+/*data fill in styles*/
+#from_avail {
+  padding-right: 1em; 
+}
+#from_avg {
+  float: right;
+  padding-right: 1.5em;
+  color: #2A2A3B;
+}
+
+.forecasts, .a_averages {
+  background-color: black;
+  color: lightgrey;
+  margin-left: -1em;
+  padding-left: 1em;
+}
+
+/*map style*/
+
 
 #map1 {
   position:absolute;
@@ -154,10 +183,23 @@ width: 30px;
   background: black !important;
 }
 .leaflet-control-zoom {
-  margin-left: 20px !important;
+  margin-left: 25px !important;
+  margin-top: 15px !important;
 }
+
+/*vis styles*/
 
 #hour {
   color:lightyellow;
+  margin-left: 1em;
+  margin-top: 2em;
 }
+#start-stop-button {
+ margin-left: 1em; 
+}
+#slider-vertical {
+  margin-left: 2em;
+  margin-top: 2em;
+}
+
 
