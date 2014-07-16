@@ -18,7 +18,14 @@ $(function(){
     var inVis = $('.in-vis-span').data('vis');
     if (inVis != "in-vis") {
       if (inVis!="static") {
-        console.log(map1.getZoom());
+        var mZoom = map1.getZoom();
+        map1.eachLayer(function(marker) {
+          if (marker.options != undefined) {
+            if (marker.options.stroke != undefined) {
+              marker.setRadius(8+5*(mZoom-13));
+            }
+          }
+        });
       }
     }
   });
@@ -246,7 +253,7 @@ function populateMap(data) {
 
 
 function chageAltColor(id, direction) {
-  console.log(id);
+  //console.log(id);
   map1.eachLayer(function(marker) {
     if (marker.options != undefined) {
       if (marker.options.stroke != undefined) {
