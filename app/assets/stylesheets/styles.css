@@ -108,6 +108,11 @@ body {
   width: 100%;
   margin-left: -1em;
   padding-left: 1em;
+  border-bottom: 1px solid lightyellow;
+
+}
+.info span {
+  padding-right: .2em;
 }
 .from {
   background-color: #2A2A3B;
@@ -140,12 +145,17 @@ body {
   padding-right: 1.5em;
   color: #2A2A3B;
 }
-
+#from_one_hr {
+  margin-right: .5em;
+}
 .forecasts, .a_averages {
   background-color: black;
   color: lightgrey;
   margin-left: -1em;
   padding-left: 1em;
+}
+#casts {
+  color: lightblue;
 }
 
 /*map style*/
@@ -185,6 +195,30 @@ width: 30px;
 .leaflet-control-zoom {
   margin-left: 25px !important;
   margin-top: 15px !important;
+}
+
+/*login styles*/
+
+#login-div, #signup-div  {
+  background-color: #2A2A2B;
+  color: lightblue;
+}
+#login-div button, #signup-div button {
+  background-color: #2A2A3B;
+  color: lightyellow;
+}
+
+.ui-dialog-titlebar {
+  background-color: blue;
+}
+
+.ui-dialog, .ui-widget, .ui-widget-content, .ui-corner-all, .ui-front, .ui-draggable, .ui-resizable {
+  background-color: black !important;
+}
+#ui-id-1, #ui-id-2  {
+  font-family: helvetica;
+  text-align: center;
+  color: #2A2A2B;
 }
 
 /*vis styles*/
