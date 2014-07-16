@@ -49,6 +49,7 @@ $(function(){
           fromStation = currStation;
           fromStationNear = currStationNearby;
           populateFromEl();
+          
           chageAltColor(fromStation.bestAlternative.current.id, "from");
         } else {
         }
@@ -73,6 +74,7 @@ $(function(){
           toStation = currStation;
           toStationNear = currStationNearby;
           populateToEl();
+
           chageAltColor(toStation.bestAlternative.current.id, "to");
         } else {
         }

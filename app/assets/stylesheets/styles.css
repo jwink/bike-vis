@@ -19,6 +19,42 @@ body {
   left: .5em;
   font-family: helvetica;
 }
+
+.welcome {
+  width: 30%;
+  position: absolute;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300; 
+  /*font-size: .9em;*/
+  left: 1em;
+  background-color: black;
+  color: lightyellow;
+  border: 1px solid lightblue;
+  border-radius: 10px;
+  opacity: .85;
+  padding-right: .6em;
+  margin-top: 10em;
+}
+.welcome h3 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: lightblue;
+
+}
+.welcome ul {
+  margin-top: 0;
+  margin-left: -1em;
+
+}
+.welcome .w_close {
+  float: right;
+  width:1em;
+  height: 1em;
+  font-weight: bold;
+  color:lightblue;
+  cursor: pointer;
+}
 .account_stuff {
   text-decoration: none;
   color: gray;

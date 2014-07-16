@@ -1,0 +1,34 @@
+
+<div class="welcome">
+  <div class="w_close">
+    x
+  </div>
+   <h3> Welcome to Bike-Vis!</h3>
+     <ul>
+     <li>Plan your Citibike trip...</li>
+     <li>Color represents station saturation with darker having more bikes.</li>
+      <li>Click on a station for current status</li>
+      <li>Choose "Pick Up" or "Drop Off" within station popup (turning station green) for more detailed information including:</li>
+          <ul>
+            <li>Forecast of bikes/docks over next two hours based on historic data for the current day and time</li>
+            <li>The best alternative station to use (yellow color)</li>
+          </ul>
+
+        <li>Signup as a user or Login with Twitter/Facebook to save your favorite stations!</li>
+        <li>Add/drop stations by clicking on them and using buttons in popup</li>
+        <li>Filter for just your favorites using Filter box in top right corner of map</li>
+     </ul>
+</div>
+<script>
+function welcomeClosable(){
+  $('.welcome .w_close').click(function(){
+    close('.welcome')
+  })
+}
+function close(div){
+  $(div).css('display','none')
+}
+$(function(){
+  welcomeClosable();
+})
+</script>
