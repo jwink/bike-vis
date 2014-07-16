@@ -10,8 +10,7 @@ window.BikeVisApp = {
 $(document).ready(function(){
   favorites = new BikeVisApp.Collections.Favorites();
   favorites.fetch();
-  map1 = L.mapbox.map('map1', 'jeffwinkler.iolcgn8o')
-    .setView([40.725, -73.979], 13);
+
   globalCurrentData = undefined;
   var inVis = $('.in-vis-span').data('vis');
   if (inVis != "in-vis") {

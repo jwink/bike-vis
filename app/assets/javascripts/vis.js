@@ -2,7 +2,10 @@
 counter = 0;
 startStop = "stop";
 
-$(function() {
+
+var do_on_load = function() {
+  map1 = L.mapbox.map('map1', 'jeffwinkler.iolcgn8o')
+    .setView([40.725, -73.979], 13);
   var inVis = $('.in-vis-span').data('vis');
   if (inVis == "in-vis") {
     getSaturations();
@@ -26,7 +29,41 @@ $(function() {
       runVis("fromSlider");
     }
   });
-});
+}
+
+$(do_on_load);
+
+$(window).bind('page:change', do_on_load);
+
+
+
+
+
+// $(function() {
+//   var inVis = $('.in-vis-span').data('vis');
+//   if (inVis == "in-vis") {
+//     getSaturations();
+//   }
+//   $('#start-stop-button').click(function() {
+//     if (startStop == "start") {
+//       startStop = "stop";
+//     } else {
+//       startStop = "start";
+//     }
+//   });
+//   $( "#slider-vertical" ).slider({
+//     orientation: "vertical",
+//     min: 0,
+//     max: 23,
+//     value: 8,
+//     animate: 'slow',
+//     slide: function(event, ui) {
+//       console.log(23-ui.value);
+//       counter = 23-ui.value;
+//       runVis("fromSlider");
+//     }
+//   });
+// });
 
 
 function getSaturations() {
