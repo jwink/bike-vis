@@ -12,21 +12,7 @@
           </div>
         </div>
         <div class="trip_info pickup">
-          <div class="info">
-            
-            <div class="available">
-            </div>
-            <div class="forecasts">
-            </div>
-            <div class="alt">
-              <div class="a_label">
-              </div>
-              <div class="a_available">
-              </div>
-              <div class="a_averages">
-              </div>
-            </div>
-          </div> <!-- close info -->
+          <%= render 'info' %>
         </div> <!-- close trip_info pickup -->
       </div> <!-- close from -->
       <div class="to">
@@ -35,28 +21,11 @@
           </div>
         </div>
         <div class="trip_info dropoff">
-          <div class="info">
-            <!-- <div class="label">
-            </div> -->
-            <div class="available">
-            </div>
-            <div class="forecasts">
-            </div>
-            <div class="alt"> 
-              <div class="a_label">
-              </div>
-              <div class="a_available">
-              </div>
-              <div class="a_averages">
-              </div>
-            </div>
-          </div>
-        </div>
+          <%= render 'info' %>
+        </div> <!-- close trip_info dropoff -->
       </div> <!-- close to -->
     </div> <!-- close from_to -->
     <div class="info_box">
-      
-
     </div>
   </div> <!-- close sidebar -->
   <div id="map1" class="map"></div>

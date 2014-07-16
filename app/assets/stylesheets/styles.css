@@ -92,6 +92,7 @@ body {
 .from_head, .to_head {
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 300;
+  margin-right: 0;
   /*background-color: #2D2D45;*/
 }
 
