@@ -1,0 +1,25 @@
+<div class="welcome staticinfo">
+  <div class="w_close">
+    x
+  </div>
+   <h3> Static Visualization:</h3>
+     <ul>
+     <li>Yellow:  Stations where saturation is always less than 30%</li>
+     <li>Gray:  Stations where saturation is always greater than 50%.</li>
+      <li>Green:  Stations never too full or too empty, saturation always between 40% and 60%</li>
+        <li>Orange:  Volatile stations.  The difference between max saturation and min saturation over the day is greater than 70%.</li>
+     </ul>
+</div>
+<script>
+function welcomeClosable(){
+  $('.welcome .w_close').click(function(){
+    close('.welcome')
+  })
+}
+function close(div){
+  $(div).css('display','none')
+}
+$(function(){
+  welcomeClosable();
+})
+</script>

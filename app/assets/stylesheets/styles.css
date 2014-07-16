@@ -278,9 +278,19 @@ body {
   text-align: center;
   color: #2A2A2B;
 }
-
+/*static styles*/
+.staticinfo {
+  left:0;
+  font-size: 1.1em;
+  margin-top: 2em;
+  width:21%;
+}
 /*vis styles*/
 
+.visinfo {
+  margin-top: 19em;
+  width:21%;
+}
 .controller {
   padding-left: 4em;
 }
@@ -309,7 +319,7 @@ body {
 } 
 @media (max-width: 1200px) {
   #start-stop-button {
-    top: 2.5em;
+    top: 2.7em;
     left: 5.5em;
   }
 }
