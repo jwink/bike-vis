@@ -18,7 +18,7 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    favorite = Favorite.where(station_id: params[:id]).take
+    favorite = Favorite.where(station_id: params[:id], user_id: current_user.id).take
     favorite.destroy
     render :json => {message: "hello"}
   end
