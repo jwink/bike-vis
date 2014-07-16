@@ -61,6 +61,9 @@ body {
   width: 22.54%;
   height: 100%;
   background-color: black;
+  -webkit-transition: width .5s; /* For Safari 3.1 to 6.0 */
+  -moz-transition: width .5s;
+  transition: width .5s;
   /*border: 2px solid lightyellow;*/
 
 }
@@ -140,12 +143,12 @@ body {
 #from_avail {
   padding-right: 1em; 
 }
-#from_avg {
+#from_avg, #to_avg {
   float: right;
   padding-right: 1.5em;
   color: #2A2A3B;
 }
-#from_one_hr {
+#from_one_hr, #to_one_hr, #from_alt_one_hr, #to_alt_one_hr  {
   margin-right: .5em;
 }
 .forecasts, .a_averages {
@@ -171,6 +174,9 @@ body {
   height: 95%;
   width: 77%;
   z-index: -1;
+  -webkit-transition: width .5s; /* For Safari 3.1 to 6.0 */
+  -moz-transition: width .5s;
+  transition: width .5s;
 }
 
 /*leaflet map stuff*/
