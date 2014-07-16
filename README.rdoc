@@ -18,6 +18,7 @@ A note on the data:
 
 Data is collected every hour on the hour from the Citibike API, taking a snapshot of the bikes/docks for that time for each station.  This data is then used to generate the averages used for the predictions and the visualization.
 
+This data is collected using a separate Rails app (Bike on jwink github) that has a rake task to query the Citibike API every hour.  Much of the initial data manipulation takes place outside of this app.  The other repo on github that has files pertaining to the project is bike_spike.
 
 TRIP PLANNER INSTRUCTIONS
 -----------------------------------------------------------------------------------------
