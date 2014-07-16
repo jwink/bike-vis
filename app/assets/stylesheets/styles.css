@@ -83,7 +83,7 @@ body {
 }
 .trip_label {
   margin-right: -.9em;
-  padding: .5em 1em 0 .5em;
+  padding: .25em 1em .25em .5em;
   z-index: 9;
   border-top: 1px solid lightyellow;
   /*border-top-right-radius: 10px;*/
