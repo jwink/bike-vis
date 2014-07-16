@@ -14,7 +14,7 @@
 //= require jquery-ui-1.10.4.custom.min
 //= require jquery_ujs
 //= require jquery.ui.touch-punch.min.js
-
+//= require turbolinks
 //= require underscore
 //= require backbone
 //= require bike_vis_app
