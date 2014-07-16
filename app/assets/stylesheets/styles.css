@@ -248,20 +248,35 @@ body {
 .controller {
   padding-left: 4em;
 }
-
 #hour {
-  color:lightyellow;
-  margin-left: -1em;
-  margin-top: 2em;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 500;
+  font-size: 2em;
+  color:lightblue;
+  margin-left: -1.5em;
+  margin-top: .5em;
 }
 #start-stop-button {
+  position: absolute;
+  top:0;
+  right: 1.2em;
+  display: inline-block;
+  float: right;
+  font-family: 'Orbitron', sans-serif;
   margin-left: -2em;
+  margin-top: 2em;
   background-color: #2A2A3B;
   background: -webkit-gradient(linear, left top, left bottom, from(#000000), to(#2A2A3F));
   background: -moz-linear-gradient(top,  #000000,  #2A2A1F);
-  color: lightyellow;
+  color: lightblue;
   border-radius: 5px;
 } 
+@media (max-width: 1200px) {
+  #start-stop-button {
+    top: 2.5em;
+    left: 5.5em;
+  }
+}
 
 #slider-vertical {
 
