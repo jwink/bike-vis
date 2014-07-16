@@ -196,7 +196,7 @@ body {
 }
 .leaflet-popup-content-wrapper {
   border-radius: 13px !important;
-  color: lightyellow;
+  color: lightblue;
   opacity: 0.9;
 }
 .leaflet-popup-content {
