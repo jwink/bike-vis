@@ -21,7 +21,7 @@ $(document).ready(function(){
   }
 
 });
-
+ $('.welcome').draggable();
 function close(div){
   $(div).css('display','none')
 }
