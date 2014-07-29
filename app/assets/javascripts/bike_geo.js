@@ -7,6 +7,7 @@ favArray = [];
 nonFavArray = [];
 
 $(function(){
+   $('.welcome').draggable(); //drag all the info menus*
   prevFromFillColor = undefined;
   prevFromFillOpacity = undefined;
   prevFromSource = undefined;
