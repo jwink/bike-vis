@@ -1,6 +1,6 @@
 == README
 
-This application has two purposes.  First, as a trip planning tool for New York Citibike users.  Second, as a data visualization for weekday Citibike trips.
+This application has two purposes.  First, as a trip planning tool for New York Citibike users.  Second, as a data visualization for weekday Citibike trips. View a live instance of the app at bike-vis.herokuapp.com.
 
 Trip Planner:
 
