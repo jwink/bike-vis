@@ -130,6 +130,18 @@ function populateMap(data) {
               " <button data-bike=" + station.id +
               " class='drop-off-button'>Drop Off</button>";
     if (user=='no_user') {
+      if (label.indexOf("Coming soon:") > -1) {
+         var marker = L.circleMarker([latitude, longitude], {radius: 8,
+                         color: '#000000',
+                         fillColor: '#ecef13',
+                         opacity: 1,
+                         stroke: true,
+                         className: station.id.toString(),
+                         fillOpacity: 0.4})
+                     .bindPopup($el, {offset: [-12, 2]});
+      nonFavArray.push(marker);
+
+      } else {
       var marker = L.circleMarker([latitude, longitude], {radius: 8,
                          color: '#000000',
                          fillColor: '#0000ff',
@@ -139,6 +151,7 @@ function populateMap(data) {
                          fillOpacity: saturation})
                      .bindPopup($el, {offset: [-12, 2]});
       nonFavArray.push(marker);
+      }
     } else {
       if ($.inArray(station.id, userFavorites) != -1) {
         $el += " <button data-bike=" + station.id +
