@@ -130,14 +130,14 @@ function populateMap(data) {
               " <button data-bike=" + station.id +
               " class='drop-off-button'>Drop Off</button>";
     if (user=='no_user') {
-      if (label.indexOf("Coming soon:") > -1) {
+      if (label.indexOf("Coming soon:") > -1 || (bikes == 0 && docks == 0)) {
          var marker = L.circleMarker([latitude, longitude], {radius: 8,
                          color: '#000000',
-                         fillColor: '#ecef13',
+                         fillColor: '#bcbcad',
                          opacity: 1,
                          stroke: true,
                          className: station.id.toString(),
-                         fillOpacity: 0.4})
+                         fillOpacity: 0.8})
                      .bindPopup($el, {offset: [-12, 2]});
       nonFavArray.push(marker);
 
